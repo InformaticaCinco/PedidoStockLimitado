@@ -1,0 +1,13 @@
+# Independent test project: no operational volumes, ports or Docker socket.
+services:
+  tests:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: scripts/ci/Dockerfile
+    init: true
+    shm_size: 1gb
+    volumes:
+      - type: bind
+        source: ${TEST_REPORT_DIR:?Run scripts/run-tests.sh}
+        target: /reports

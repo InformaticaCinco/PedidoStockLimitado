@@ -1,0 +1,15 @@
+1. Restableciendo entorno...
+   Docker Compose: OK
+2. Login comprador01 y comprador02...
+{
+  "usuarioA": "USR-COM-001",
+  "usuarioB": "USR-COM-002",
+  "clienteA": "CLI-0001",
+  "clienteB": "CLI-0002"
+}
+3. Comprador01 intenta enviar clienteId de comprador02...
+   HTTP=400, pedidoId=None
+4. Solicitud rechazada: verificando que no creó pedido...
+
+✅ E2E 20: PASS
+Evidencia JSON: tests/evidencias/e2e20-suplantacion-parametro.json

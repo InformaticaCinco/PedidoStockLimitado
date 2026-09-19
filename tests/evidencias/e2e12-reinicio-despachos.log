@@ -1,0 +1,117 @@
+1. Restableciendo entorno limpio...
+   Docker Compose + proxy: OK
+2. Validando proxy E2E12...
+   Proxy: UP
+3. Login comprador01...
+4. Validando stock inicial...
+{
+  "disponible": 20,
+  "reservado": 0
+}
+5. Creando pedido...
+   HTTP=202, pedidoId=PED-6761f50a-6363-4c35-a7f0-8870e00aeeaf
+6. Esperando que el transportista REAL cree la guía y el proxy retenga la respuesta...
+   Guía creada externamente. Polling=10
+{
+  "guiaCreada": true,
+  "pedidoId": "PED-6761f50a-6363-4c35-a7f0-8870e00aeeaf",
+  "statusTransportista": 201,
+  "postGuiasInterceptados": 1
+}
+7. Verificando pedido justo antes del SIGKILL...
+{
+  "estado": "EN_PROCESO",
+  "idWorker": "WRK-ed501434-2b4e-4f21-8139-ab70d08f131b",
+  "fechaInicioProceso": "2026-09-19T04:42:47.915Z",
+  "fechaFinProceso": null,
+  "intentoProceso": 1,
+  "estadoReserva": "RESERVADA",
+  "guiaIntentada": true,
+  "envio": {
+    "$numberDecimal": "8.00"
+  },
+  "workerFechaFin": null,
+  "workerIntentos": 1,
+  "workerLeaseOwner": "ae76dfac-8a08-45d9-b7f2-1e8a9f57047c",
+  "workerLeaseVersion": 1,
+  "workerLeaseHeartbeat": "2026-09-19T04:42:47.819Z",
+  "stockDisponible": 19,
+  "stockReservado": 1,
+  "guiasMongo": 0
+}
+
+8. SIGKILL despachos-dotnet durante GENERAR_GUIA...
+   despachos-dotnet detenido.
+9. Confirmando guía externa existente después de la caída...
+   HTTP=200, guías=1
+10. Confirmando pedido/Worker incompletos...
+{
+  "estado": "EN_PROCESO",
+  "fechaFinProceso": null,
+  "intentoProceso": 1,
+  "estadoReserva": "RESERVADA",
+  "guiaIntentada": true,
+  "workerFechaFin": null,
+  "workerIntentos": 1,
+  "workerLeaseVersion": 1,
+  "workerLeaseHeartbeat": "2026-09-19T04:42:47.819Z",
+  "guiasMongo": 0
+}
+
+11. Reiniciando despachos-dotnet...
+   Servicio levantado. Esperando expiración natural del lease (~30 s)...
+12. Esperando recuperación y estado terminal...
+   Estado=DESPACHADO, IntentoProceso=2, Worker.Intentos=2, tiempo=20.95s
+
+13. Validando estado final, stock, guía y procesos...
+{
+  "estado": "DESPACHADO",
+  "fechaFinProceso": "2026-09-19T04:43:18.982Z",
+  "intentoProceso": 2,
+  "estadoReserva": "CONFIRMADA",
+  "workerFechaFin": "2026-09-19T04:43:18.988Z",
+  "workerIntentos": 2,
+  "workerLeaseVersion": 2,
+  "stockDisponible": 19,
+  "stockReservado": 0,
+  "guiasMongo": 1,
+  "guias": [
+    {
+      "id": "GUI-330db79d-0589-4d04-9901-df6211ba737e",
+      "numero": "G-000001",
+      "estado": "ACTIVO"
+    }
+  ],
+  "procesos": [
+    {
+      "id": "PRC-45518fcd-2a02-48bd-82ab-41bf07aada56",
+      "paso": "RESERVAR_STOCK",
+      "estado": "OK",
+      "nroIntento": 1
+    },
+    {
+      "id": "DSP-49afc117-6008-49a6-a260-84ca63e3e913",
+      "paso": "CALCULAR_ENVIO",
+      "estado": "OK",
+      "nroIntento": 1
+    },
+    {
+      "id": "DSP-fa293e8a-c7f9-4546-8f54-4023631324bf",
+      "paso": "GENERAR_GUIA",
+      "estado": "OK",
+      "nroIntento": 1
+    },
+    {
+      "id": "PRC-cd95eaf4-2161-44c1-b004-e0ce3355982a",
+      "paso": "CONFIRMAR_DESPACHO",
+      "estado": "OK",
+      "nroIntento": 1
+    }
+  ]
+}
+
+14. Validando que NO exista segunda guía externa...
+   HTTP=200, guías=1, activas=1
+
+✅ E2E 12: PASS
+Evidencia JSON: tests/evidencias/e2e12-reinicio-despachos.json

@@ -1,0 +1,90 @@
+{
+  "escenario": "E2E 01 - Pedido correcto FAILURE_RATE=0",
+  "resultado": "PASS",
+  "stockInicial": {
+    "disponible": 20,
+    "reservado": 0
+  },
+  "alta": {
+    "http": 202,
+    "pedidoId": "PED-8cc93da9-bd33-473b-9235-66edfd522162"
+  },
+  "consultaFinal": {
+    "pedidoId": "PED-8cc93da9-bd33-473b-9235-66edfd522162",
+    "estado": "DESPACHADO",
+    "almacenId": "ALM-01",
+    "items": [
+      {
+        "sku": "SKU-00002",
+        "vendedorId": "USR-VEN-01",
+        "cantidad": 1,
+        "precioUnitario": 11.0,
+        "pesoUnitario": 0.5,
+        "subtotal": 11.0
+      }
+    ],
+    "subtotal": 11.0,
+    "envio": 8.0,
+    "total": 19.0,
+    "pesoTotal": 0.5,
+    "anulacionSolicitada": false,
+    "solicitudId": "E2E01-PEDIDO-CORRECTO",
+    "zonaEntrega": "LIMA_METROPOLITANA",
+    "correlationId": "a375a7af-2506-4314-8b8d-33a29aa0f4d1",
+    "guia": {
+      "id": "GUI-6e05f24b-1ba9-432c-b343-014f72345011",
+      "estado": "ACTIVO"
+    },
+    "pasos": [
+      {
+        "paso": "RESERVAR_STOCK",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 41
+      },
+      {
+        "paso": "CALCULAR_ENVIO",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 19
+      },
+      {
+        "paso": "GENERAR_GUIA",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 41
+      },
+      {
+        "paso": "CONFIRMAR_DESPACHO",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 12
+      }
+    ],
+    "compensaciones": []
+  },
+  "mongo": {
+    "estado": "DESPACHADO",
+    "reservarStock": 1,
+    "calcularEnvio": 1,
+    "generarGuia": 1,
+    "confirmarDespacho": 1,
+    "guias": 1,
+    "disponible": 19,
+    "reservado": 0
+  },
+  "transportista": {
+    "http": 200,
+    "cantidad": 1,
+    "activas": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  }
+}

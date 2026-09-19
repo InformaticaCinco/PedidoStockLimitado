@@ -1,0 +1,23 @@
+{
+  "escenario": "E2E 16 - Carga masiva con trafico simultaneo",
+  "resultado": "PASS",
+  "cargaId": "CG-07685dd1-018b-4d60-910f-2251480f575b",
+  "pedidosExcel": 20,
+  "pedidosIndividuales": 20,
+  "competidores": 40,
+  "respuestasIndividuales": {
+    "202": 20
+  },
+  "final": {
+    "total": 40,
+    "terminales": 40,
+    "estados": {
+      "ANULADO": 37,
+      "DESPACHADO": 3
+    },
+    "disponible": 0,
+    "reservado": 0,
+    "guiasActivas": 3
+  },
+  "sinOversell": true
+}

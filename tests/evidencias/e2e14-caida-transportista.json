@@ -1,0 +1,31 @@
+{
+  "escenario": "E2E 14 - Caida transportista",
+  "resultado": "PASS",
+  "pedidoId": "PED-0912c4c1-b5dd-4e29-8e05-732e4f07ca3f",
+  "final": {
+    "estado": "REQUIERE_REVISION",
+    "fechaFinProceso": "2026-09-19T04:51:20.053Z",
+    "pasoPendiente": "GENERAR_GUIA",
+    "stockDisponible": 19,
+    "stockReservado": 1,
+    "stockTotal": 20,
+    "guiasMongo": 0,
+    "generarGuia": [
+      {
+        "estado": "FALLIDO",
+        "intento": 1,
+        "log": "TRANSPORTISTA_CONEXION"
+      },
+      {
+        "estado": "FALLIDO",
+        "intento": 2,
+        "log": "TRANSPORTISTA_CONEXION"
+      },
+      {
+        "estado": "FALLIDO",
+        "intento": 3,
+        "log": "TRANSPORTISTA_CONEXION"
+      }
+    ]
+  }
+}

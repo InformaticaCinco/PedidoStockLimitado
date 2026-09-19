@@ -1,0 +1,56 @@
+{
+  "escenario": "E2E 02 - Misma solicitudId enviada 3 veces",
+  "resultado": "PASS",
+  "stockInicial": {
+    "disponible": 20,
+    "reservado": 0
+  },
+  "respuestas": [
+    {
+      "envio": 1,
+      "http": 202,
+      "pedidoId": "PED-387184a6-f4b7-442e-8c92-f70984083bc6",
+      "estado": "RECIBIDO"
+    },
+    {
+      "envio": 2,
+      "http": 200,
+      "pedidoId": "PED-387184a6-f4b7-442e-8c92-f70984083bc6",
+      "estado": "RECIBIDO"
+    },
+    {
+      "envio": 3,
+      "http": 200,
+      "pedidoId": "PED-387184a6-f4b7-442e-8c92-f70984083bc6",
+      "estado": "RECIBIDO"
+    }
+  ],
+  "estadoFinal": "DESPACHADO",
+  "polling": 2,
+  "mongo": {
+    "cantidadPedidos": 1,
+    "pedidoId": "PED-387184a6-f4b7-442e-8c92-f70984083bc6",
+    "estadoPedido": "DESPACHADO",
+    "reservarStock": 1,
+    "calcularEnvio": 1,
+    "generarGuia": 1,
+    "confirmarDespacho": 1,
+    "guiasMongo": 1,
+    "stockDisponible": 19,
+    "stockReservado": 0
+  },
+  "transportista": {
+    "http": 200,
+    "cantidad": 1,
+    "activas": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  }
+}

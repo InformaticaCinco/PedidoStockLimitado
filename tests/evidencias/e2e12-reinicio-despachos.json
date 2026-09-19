@@ -1,0 +1,146 @@
+{
+  "escenario": "E2E 12 - Reinicio despachos con pedido en curso",
+  "resultado": "PASS",
+  "stockInicial": {
+    "disponible": 20,
+    "reservado": 0
+  },
+  "pedidoId": "PED-6761f50a-6363-4c35-a7f0-8870e00aeeaf",
+  "proxyAntesCaida": {
+    "guiaCreada": true,
+    "pedidoId": "PED-6761f50a-6363-4c35-a7f0-8870e00aeeaf",
+    "statusTransportista": 201,
+    "postGuiasInterceptados": 1
+  },
+  "puntoCorte": {
+    "estado": "EN_PROCESO",
+    "idWorker": "WRK-ed501434-2b4e-4f21-8139-ab70d08f131b",
+    "fechaInicioProceso": "2026-09-19T04:42:47.915Z",
+    "fechaFinProceso": null,
+    "intentoProceso": 1,
+    "estadoReserva": "RESERVADA",
+    "guiaIntentada": true,
+    "envio": {
+      "$numberDecimal": "8.00"
+    },
+    "workerFechaFin": null,
+    "workerIntentos": 1,
+    "workerLeaseOwner": "ae76dfac-8a08-45d9-b7f2-1e8a9f57047c",
+    "workerLeaseVersion": 1,
+    "workerLeaseHeartbeat": "2026-09-19T04:42:47.819Z",
+    "stockDisponible": 19,
+    "stockReservado": 1,
+    "guiasMongo": 0
+  },
+  "comandoCaida": "docker compose -f docker-compose.yml -f tests/integration/e2e12-compose.override.yml kill -s SIGKILL despachos-dotnet",
+  "transportistaTrasCaida": {
+    "http": 200,
+    "cantidad": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  },
+  "interrumpido": {
+    "estado": "EN_PROCESO",
+    "fechaFinProceso": null,
+    "intentoProceso": 1,
+    "estadoReserva": "RESERVADA",
+    "guiaIntentada": true,
+    "workerFechaFin": null,
+    "workerIntentos": 1,
+    "workerLeaseVersion": 1,
+    "workerLeaseHeartbeat": "2026-09-19T04:42:47.819Z",
+    "guiasMongo": 0
+  },
+  "comandoReinicio": "docker compose -f docker-compose.yml -f tests/integration/e2e12-compose.override.yml up -d despachos-dotnet",
+  "recuperacion": {
+    "estado": "DESPACHADO",
+    "fechaFinProceso": "2026-09-19T04:43:18.982Z",
+    "intentoProceso": 2,
+    "estadoReserva": "CONFIRMADA",
+    "workerFechaFin": "2026-09-19T04:43:18.988Z",
+    "workerIntentos": 2,
+    "workerLeaseVersion": 2,
+    "polling": 16,
+    "segundosRecuperacion": 20.95
+  },
+  "finalMongo": {
+    "estado": "DESPACHADO",
+    "fechaFinProceso": "2026-09-19T04:43:18.982Z",
+    "intentoProceso": 2,
+    "estadoReserva": "CONFIRMADA",
+    "workerFechaFin": "2026-09-19T04:43:18.988Z",
+    "workerIntentos": 2,
+    "workerLeaseVersion": 2,
+    "stockDisponible": 19,
+    "stockReservado": 0,
+    "guiasMongo": 1,
+    "guias": [
+      {
+        "id": "GUI-330db79d-0589-4d04-9901-df6211ba737e",
+        "numero": "G-000001",
+        "estado": "ACTIVO"
+      }
+    ],
+    "procesos": [
+      {
+        "id": "PRC-45518fcd-2a02-48bd-82ab-41bf07aada56",
+        "paso": "RESERVAR_STOCK",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "DSP-49afc117-6008-49a6-a260-84ca63e3e913",
+        "paso": "CALCULAR_ENVIO",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "DSP-fa293e8a-c7f9-4546-8f54-4023631324bf",
+        "paso": "GENERAR_GUIA",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "PRC-cd95eaf4-2161-44c1-b004-e0ce3355982a",
+        "paso": "CONFIRMAR_DESPACHO",
+        "estado": "OK",
+        "nroIntento": 1
+      }
+    ]
+  },
+  "transportistaFinal": {
+    "http": 200,
+    "cantidad": 1,
+    "activas": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  },
+  "validaciones": {
+    "guiaCreadaAntesDeCaida": true,
+    "caidaDurantePedido": true,
+    "workerQuedoAbierto": true,
+    "pedidoQuedoIncompleto": true,
+    "servicioReiniciado": true,
+    "leaseRecuperado": true,
+    "workerIntentosIncrementado": true,
+    "leaseVersionIncrementado": true,
+    "intentoProcesoIncrementado": true,
+    "estadoTerminal": true,
+    "stockConsistente": true,
+    "sinGuiaDuplicada": true
+  }
+}

@@ -1,0 +1,29 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Login ADMIN + 20 compradores...
+   Logins: OK
+3. Stock inicial SKU-00001 = 3 / 0
+4. Iniciando carga masiva de 500 filas...
+   HTTP=202, cargaId=CG-100befa2-cd38-43bc-9375-7c3880148f62
+5. Lanzando inmediatamente 20 pedidos individuales simultáneos...
+   HTTP pedidos={'202': 20}, pedidoIds=20
+6. Esperando carga PROCESADA...
+   PROCESADA, polling=3
+7. Identificando los 20 pedidos críticos del Excel...
+   Pedidos Excel críticos=20
+8. Esperando los 40 pedidos terminales...
+   Terminales=40, polling=20
+{
+  "total": 40,
+  "terminales": 40,
+  "estados": {
+    "ANULADO": 37,
+    "DESPACHADO": 3
+  },
+  "disponible": 0,
+  "reservado": 0,
+  "guiasActivas": 3
+}
+
+✅ E2E 16: PASS
+Evidencia JSON: tests/evidencias/e2e16-carga-masiva-trafico.json

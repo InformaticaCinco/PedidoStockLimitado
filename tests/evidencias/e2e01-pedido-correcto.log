@@ -1,0 +1,27 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Validando stock inicial SKU-00002...
+   Stock inicial=20/0
+3. Login comprador01...
+4. Registrando pedido correcto...
+   HTTP=202, pedidoId=PED-8cc93da9-bd33-473b-9235-66edfd522162
+5. Esperando al Worker mediante polling...
+   Estado=DESPACHADO, polling=2
+6. Validando montos...
+   subtotal=11.0, envio=8.0, total=19.0
+7. Validando MongoDB...
+{
+  "estado": "DESPACHADO",
+  "reservarStock": 1,
+  "calcularEnvio": 1,
+  "generarGuia": 1,
+  "confirmarDespacho": 1,
+  "guias": 1,
+  "disponible": 19,
+  "reservado": 0
+}
+8. Validando transportista...
+   HTTP=200, guías=1, activas=1
+
+✅ E2E 01: PASS
+Evidencia JSON: tests/evidencias/e2e01-pedido-correcto.json

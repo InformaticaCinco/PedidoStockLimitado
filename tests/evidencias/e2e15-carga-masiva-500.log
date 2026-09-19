@@ -1,0 +1,35 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Validando archivo Excel...
+   Filas de datos=500
+3. Login ADMIN...
+4. Subiendo pedidos-masivo.xlsx...
+   HTTP=202, cargaId=CG-25702ee8-60b5-4f8b-a3c9-0047aea4460b
+5. Esperando procesamiento del Excel...
+   PROCESADA, polling=7
+{
+  "filas": 500,
+  "aceptadas": 439,
+  "rechazadas": 53,
+  "duplicadas": 8
+}
+6. Descargando reporte XLSX...
+   HTTP=200, filas reporte=500, bytes=41929
+7. Identificando los 20 pedidos de últimas 3 unidades...
+   Pedidos críticos encontrados=20
+8. Esperando estado terminal de los 20 pedidos críticos...
+   Todos terminales, polling=17
+{
+  "total": 20,
+  "terminales": 20,
+  "estados": {
+    "ANULADO": 17,
+    "DESPACHADO": 3
+  },
+  "disponible": 0,
+  "reservado": 0,
+  "guiasActivas": 3
+}
+
+✅ E2E 15: PASS
+Evidencia JSON: tests/evidencias/e2e15-carga-masiva-500.json

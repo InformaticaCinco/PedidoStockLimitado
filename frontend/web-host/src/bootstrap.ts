@@ -1,0 +1,15 @@
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { importProvidersFrom, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es-PE';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LucideAngularModule, PackageCheck, ShoppingBag, Package, Truck, ShieldCheck, Eye, EyeOff, ArrowRight, ArrowLeft, Menu, UserRound, LogOut, CircleCheck, Boxes, LayoutDashboard, RefreshCw, Plus, Search, Pencil, X, Info, CircleAlert, CircleHelp, PackageSearch, Check, Clock3, LoaderCircle, Unplug } from 'lucide-angular';
+import { AppComponent } from './app/app';
+import { routes } from './app/routes';
+import { sessionInterceptor } from './app/core/interceptor';
+registerLocaleData(localeEs);
+bootstrapApplication(AppComponent,{providers:[provideAnimations(),provideHttpClient(withInterceptors([sessionInterceptor])),provideRouter(routes,withComponentInputBinding()),{provide:LOCALE_ID,useValue:'es-PE'},importProvidersFrom(MatSnackBarModule,MatDialogModule,LucideAngularModule.pick({PackageCheck,ShoppingBag,Package,Truck,ShieldCheck,Eye,EyeOff,ArrowRight,ArrowLeft,Menu,UserRound,LogOut,CircleCheck,Boxes,LayoutDashboard,RefreshCw,Plus,Search,Pencil,X,Info,CircleAlert,CircleHelp,PackageSearch,Check,Clock3,LoaderCircle,Unplug}))]}).catch(()=>{document.body.textContent='No se pudo iniciar la aplicación. Recarga la página.';});

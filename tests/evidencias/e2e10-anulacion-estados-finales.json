@@ -1,0 +1,42 @@
+{
+  "escenario": "E2E 10 - Anulacion de estados finales",
+  "resultado": "PASS",
+  "pedidoDespachado": {
+    "pedidoId": "PED-3aa42db3-4bf2-4170-b614-d2ed7bef971b",
+    "estadoAntes": "DESPACHADO",
+    "anulacionHttp": 409,
+    "respuestaAnulacion": {
+      "code": 409,
+      "statusCode": "HTTP_409_CONFLICT",
+      "message": "Pedido ya despachado",
+      "data": null
+    },
+    "mongo": {
+      "estado": "DESPACHADO",
+      "stockDisponible": 19,
+      "stockReservado": 0,
+      "guias": 1
+    },
+    "guiasActivas": 1
+  },
+  "pedidoAnulado": {
+    "pedidoId": "PED-fde001c6-01d9-462c-81db-eb5642773246",
+    "estadoAntes": "ANULADO",
+    "primeraAnulacionHttp": 200,
+    "segundaAnulacionHttp": 200,
+    "mongo": {
+      "estado": "ANULADO",
+      "stockDisponible": 3,
+      "stockReservado": 0,
+      "guias": 0,
+      "generarGuia": 0
+    }
+  },
+  "validaciones": {
+    "despachadoDevuelve409": true,
+    "despachadoNoCambia": true,
+    "anuladoDevuelve200": true,
+    "anulacionRepetidaDevuelve200": true,
+    "anulacionRepetidaSinEfectos": true
+  }
+}

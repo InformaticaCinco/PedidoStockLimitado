@@ -1,0 +1,26 @@
+1. Restableciendo entorno con PARTIAL_RATE=1.0...
+   Docker Compose: OK
+2. Verificando configuración real del transportista...
+   FAILURE_RATE=0, PARTIAL_RATE=1.0
+3. Validando stock inicial...
+   Stock inicial=20/0
+4. Login comprador01...
+5. Registrando pedido...
+   HTTP=202, pedidoId=PED-584b3205-35f9-4f89-b479-250e60150b89
+6. Esperando estado final mediante polling...
+   Estado=DESPACHADO, polling=2
+7. Validando MongoDB...
+{
+  "estado": "DESPACHADO",
+  "reservarStock": 1,
+  "generarGuia": 1,
+  "confirmarDespacho": 1,
+  "guiasMongo": 1,
+  "disponible": 19,
+  "reservado": 0
+}
+8. Consultando directamente el transportista...
+   HTTP=200, guías=1, activas=1
+
+✅ E2E 08: PASS
+Evidencia JSON: tests/evidencias/e2e08-partial-rate-guia-unica.json

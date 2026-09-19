@@ -1,0 +1,684 @@
+{
+  "escenario": "E2E 07 - FAILURE_RATE=0.5 con 50 pedidos secuenciales",
+  "resultado": "PASS",
+  "configuracion": {
+    "FAILURE_RATE": "0.5",
+    "PARTIAL_RATE": "0",
+    "LATENCY_MS": "3000"
+  },
+  "stockInicial": [
+    {
+      "sku": "SKU-00002",
+      "disponible": 20,
+      "reservado": 0,
+      "total": 20
+    },
+    {
+      "sku": "SKU-00003",
+      "disponible": 30,
+      "reservado": 0,
+      "total": 30
+    },
+    {
+      "sku": "SKU-00004",
+      "disponible": 50,
+      "reservado": 0,
+      "total": 50
+    },
+    {
+      "sku": "SKU-00005",
+      "disponible": 20,
+      "reservado": 0,
+      "total": 20
+    },
+    {
+      "sku": "SKU-00006",
+      "disponible": 30,
+      "reservado": 0,
+      "total": 30
+    },
+    {
+      "sku": "SKU-00007",
+      "disponible": 50,
+      "reservado": 0,
+      "total": 50
+    },
+    {
+      "sku": "SKU-00008",
+      "disponible": 20,
+      "reservado": 0,
+      "total": 20
+    },
+    {
+      "sku": "SKU-00009",
+      "disponible": 30,
+      "reservado": 0,
+      "total": 30
+    },
+    {
+      "sku": "SKU-00010",
+      "disponible": 50,
+      "reservado": 0,
+      "total": 50
+    },
+    {
+      "sku": "SKU-00011",
+      "disponible": 20,
+      "reservado": 0,
+      "total": 20
+    },
+    {
+      "sku": "SKU-00012",
+      "disponible": 30,
+      "reservado": 0,
+      "total": 30
+    },
+    {
+      "sku": "SKU-00013",
+      "disponible": 50,
+      "reservado": 0,
+      "total": 50
+    },
+    {
+      "sku": "SKU-00014",
+      "disponible": 20,
+      "reservado": 0,
+      "total": 20
+    }
+  ],
+  "pedidos": [
+    {
+      "numero": 1,
+      "solicitudId": "E2E07-FAILURE-01",
+      "pedidoId": "PED-d5501f7c-45aa-49b1-a4a4-645ee2fbb5c8",
+      "sku": "SKU-00002",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 5,
+      "segundos": 2.21
+    },
+    {
+      "numero": 2,
+      "solicitudId": "E2E07-FAILURE-02",
+      "pedidoId": "PED-9bda8a5a-f138-4400-8656-e9054bf31c7d",
+      "sku": "SKU-00003",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.07
+    },
+    {
+      "numero": 3,
+      "solicitudId": "E2E07-FAILURE-03",
+      "pedidoId": "PED-a53cc1c7-587c-4e4c-9768-aece7f52a3b4",
+      "sku": "SKU-00004",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 14,
+      "segundos": 6.96
+    },
+    {
+      "numero": 4,
+      "solicitudId": "E2E07-FAILURE-04",
+      "pedidoId": "PED-7c8878af-8abf-453d-8f7e-c8b32c800065",
+      "sku": "SKU-00005",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 5,
+      "solicitudId": "E2E07-FAILURE-05",
+      "pedidoId": "PED-5c768ae3-88b6-43b0-90fa-cc48bb23a3c5",
+      "sku": "SKU-00006",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.6
+    },
+    {
+      "numero": 6,
+      "solicitudId": "E2E07-FAILURE-06",
+      "pedidoId": "PED-8e6735c3-8158-4c23-9021-32e4048b5d43",
+      "sku": "SKU-00007",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 15,
+      "segundos": 7.49
+    },
+    {
+      "numero": 7,
+      "solicitudId": "E2E07-FAILURE-07",
+      "pedidoId": "PED-05a8a80c-67d1-4dd3-9dfd-a8bd99dd0e28",
+      "sku": "SKU-00008",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.58
+    },
+    {
+      "numero": 8,
+      "solicitudId": "E2E07-FAILURE-08",
+      "pedidoId": "PED-a5da80c8-331b-48d1-8655-b507c8899ddd",
+      "sku": "SKU-00009",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 16,
+      "segundos": 7.94
+    },
+    {
+      "numero": 9,
+      "solicitudId": "E2E07-FAILURE-09",
+      "pedidoId": "PED-0c28e8fe-2a57-47ec-a33f-e25c31364ea3",
+      "sku": "SKU-00010",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.07
+    },
+    {
+      "numero": 10,
+      "solicitudId": "E2E07-FAILURE-10",
+      "pedidoId": "PED-5cd90718-8706-488f-9c38-38ce5af4cefa",
+      "sku": "SKU-00011",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 13,
+      "segundos": 6.34
+    },
+    {
+      "numero": 11,
+      "solicitudId": "E2E07-FAILURE-11",
+      "pedidoId": "PED-7a76cf92-4713-4576-b4dc-4a4cde75e2bb",
+      "sku": "SKU-00012",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 15,
+      "segundos": 7.43
+    },
+    {
+      "numero": 12,
+      "solicitudId": "E2E07-FAILURE-12",
+      "pedidoId": "PED-35be3c10-2974-498d-825d-b728c45fd73c",
+      "sku": "SKU-00013",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 13,
+      "solicitudId": "E2E07-FAILURE-13",
+      "pedidoId": "PED-477f80d8-0a7a-4849-b3be-32c8dae54e71",
+      "sku": "SKU-00014",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 5,
+      "segundos": 2.11
+    },
+    {
+      "numero": 14,
+      "solicitudId": "E2E07-FAILURE-14",
+      "pedidoId": "PED-5a7100e6-5646-468a-bafd-f7298de19a91",
+      "sku": "SKU-00002",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 15,
+      "segundos": 7.4
+    },
+    {
+      "numero": 15,
+      "solicitudId": "E2E07-FAILURE-15",
+      "pedidoId": "PED-eb37cde8-1625-48b7-ac5c-0bfe00829e6b",
+      "sku": "SKU-00003",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 16,
+      "solicitudId": "E2E07-FAILURE-16",
+      "pedidoId": "PED-8dc57033-59e5-42a3-aebe-21380f04cacf",
+      "sku": "SKU-00004",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.07
+    },
+    {
+      "numero": 17,
+      "solicitudId": "E2E07-FAILURE-17",
+      "pedidoId": "PED-dac89bd8-69fc-429a-b180-9e90d0bf5667",
+      "sku": "SKU-00005",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 15,
+      "segundos": 7.39
+    },
+    {
+      "numero": 18,
+      "solicitudId": "E2E07-FAILURE-18",
+      "pedidoId": "PED-a773c710-eee4-4ac2-aecf-f105eaea2327",
+      "sku": "SKU-00006",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.6
+    },
+    {
+      "numero": 19,
+      "solicitudId": "E2E07-FAILURE-19",
+      "pedidoId": "PED-61a0e008-a04b-456d-ac6c-0c988983d799",
+      "sku": "SKU-00007",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.57
+    },
+    {
+      "numero": 20,
+      "solicitudId": "E2E07-FAILURE-20",
+      "pedidoId": "PED-f46a7d59-603a-4cde-bd83-2e0cfcd2fae5",
+      "sku": "SKU-00008",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 21,
+      "solicitudId": "E2E07-FAILURE-21",
+      "pedidoId": "PED-d1129b25-b220-40dc-acb2-a0253206d06a",
+      "sku": "SKU-00009",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 22,
+      "solicitudId": "E2E07-FAILURE-22",
+      "pedidoId": "PED-49b287bd-a86d-4db5-9c3d-8a350b12b779",
+      "sku": "SKU-00010",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.08
+    },
+    {
+      "numero": 23,
+      "solicitudId": "E2E07-FAILURE-23",
+      "pedidoId": "PED-e68680a0-5d61-489d-8275-85bfb327a3cf",
+      "sku": "SKU-00011",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 13,
+      "segundos": 6.32
+    },
+    {
+      "numero": 24,
+      "solicitudId": "E2E07-FAILURE-24",
+      "pedidoId": "PED-7b251af9-650e-4792-a75c-7f5e12b55a5d",
+      "sku": "SKU-00012",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.06
+    },
+    {
+      "numero": 25,
+      "solicitudId": "E2E07-FAILURE-25",
+      "pedidoId": "PED-30b706f5-b807-49a3-b9ef-3a2d6539eb03",
+      "sku": "SKU-00013",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.55
+    },
+    {
+      "numero": 26,
+      "solicitudId": "E2E07-FAILURE-26",
+      "pedidoId": "PED-0c427ea9-5be1-4341-9db4-e13f3aec9175",
+      "sku": "SKU-00014",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.6
+    },
+    {
+      "numero": 27,
+      "solicitudId": "E2E07-FAILURE-27",
+      "pedidoId": "PED-fed43f38-497d-42d5-b1ca-a4e64ee3e2ce",
+      "sku": "SKU-00002",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.06
+    },
+    {
+      "numero": 28,
+      "solicitudId": "E2E07-FAILURE-28",
+      "pedidoId": "PED-12e613cb-5c31-40cd-a8d8-2851d80308c4",
+      "sku": "SKU-00003",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.04
+    },
+    {
+      "numero": 29,
+      "solicitudId": "E2E07-FAILURE-29",
+      "pedidoId": "PED-4f77ebb9-806a-4d0e-a0f4-f22c3eaa9a7e",
+      "sku": "SKU-00004",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.56
+    },
+    {
+      "numero": 30,
+      "solicitudId": "E2E07-FAILURE-30",
+      "pedidoId": "PED-e97ed3a3-f73c-4260-a266-d0e3496c57ac",
+      "sku": "SKU-00005",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.06
+    },
+    {
+      "numero": 31,
+      "solicitudId": "E2E07-FAILURE-31",
+      "pedidoId": "PED-446bb4b4-b36d-4353-960f-3c922e516456",
+      "sku": "SKU-00006",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 13,
+      "segundos": 6.29
+    },
+    {
+      "numero": 32,
+      "solicitudId": "E2E07-FAILURE-32",
+      "pedidoId": "PED-1ae92202-f8d0-4a65-95a3-18c47444bd09",
+      "sku": "SKU-00007",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.03
+    },
+    {
+      "numero": 33,
+      "solicitudId": "E2E07-FAILURE-33",
+      "pedidoId": "PED-9b3cbcac-c5e0-45d0-8dc1-88aa73e93b99",
+      "sku": "SKU-00008",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 7,
+      "segundos": 3.14
+    },
+    {
+      "numero": 34,
+      "solicitudId": "E2E07-FAILURE-34",
+      "pedidoId": "PED-8eca624f-f616-4978-8d4b-c1e96bd17514",
+      "sku": "SKU-00009",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.11
+    },
+    {
+      "numero": 35,
+      "solicitudId": "E2E07-FAILURE-35",
+      "pedidoId": "PED-dfefe625-6bcf-4dbc-b56c-b2c75fd2d170",
+      "sku": "SKU-00010",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 13,
+      "segundos": 6.32
+    },
+    {
+      "numero": 36,
+      "solicitudId": "E2E07-FAILURE-36",
+      "pedidoId": "PED-4e26abcb-e85e-49c3-a54c-4f53a14f193e",
+      "sku": "SKU-00011",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.06
+    },
+    {
+      "numero": 37,
+      "solicitudId": "E2E07-FAILURE-37",
+      "pedidoId": "PED-0148d985-93d2-4284-9d9a-cec68175276b",
+      "sku": "SKU-00012",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.04
+    },
+    {
+      "numero": 38,
+      "solicitudId": "E2E07-FAILURE-38",
+      "pedidoId": "PED-2f4d4eea-ad5e-42f8-875b-84cdbce2012d",
+      "sku": "SKU-00013",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 16,
+      "segundos": 7.86
+    },
+    {
+      "numero": 39,
+      "solicitudId": "E2E07-FAILURE-39",
+      "pedidoId": "PED-32c5ef60-4a62-4813-ab4e-de406d07f5dd",
+      "sku": "SKU-00014",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.61
+    },
+    {
+      "numero": 40,
+      "solicitudId": "E2E07-FAILURE-40",
+      "pedidoId": "PED-a91514c1-d311-4abc-9e52-95b487149516",
+      "sku": "SKU-00002",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 4,
+      "segundos": 1.58
+    },
+    {
+      "numero": 41,
+      "solicitudId": "E2E07-FAILURE-41",
+      "pedidoId": "PED-bb4ff256-9d44-4876-96e9-4134d2f35c66",
+      "sku": "SKU-00003",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.06
+    },
+    {
+      "numero": 42,
+      "solicitudId": "E2E07-FAILURE-42",
+      "pedidoId": "PED-32575bcd-07b9-4ed8-97a1-c3450fd69b1c",
+      "sku": "SKU-00004",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.06
+    },
+    {
+      "numero": 43,
+      "solicitudId": "E2E07-FAILURE-43",
+      "pedidoId": "PED-1ed855f3-a30a-447a-8531-825d12b88a98",
+      "sku": "SKU-00005",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 44,
+      "solicitudId": "E2E07-FAILURE-44",
+      "pedidoId": "PED-7b8513ce-d1e5-498c-b0bd-ea9463f6095b",
+      "sku": "SKU-00006",
+      "httpAlta": 202,
+      "estadoFinal": "REQUIERE_REVISION",
+      "polling": 16,
+      "segundos": 7.85
+    },
+    {
+      "numero": 45,
+      "solicitudId": "E2E07-FAILURE-45",
+      "pedidoId": "PED-e27db1ba-d871-4370-afaf-028c945c662c",
+      "sku": "SKU-00007",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 13,
+      "segundos": 6.28
+    },
+    {
+      "numero": 46,
+      "solicitudId": "E2E07-FAILURE-46",
+      "pedidoId": "PED-22c4c5e0-968b-4228-8e87-7f0aa3004f90",
+      "sku": "SKU-00008",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 6,
+      "segundos": 2.6
+    },
+    {
+      "numero": 47,
+      "solicitudId": "E2E07-FAILURE-47",
+      "pedidoId": "PED-2458d416-99ab-41d2-a1d9-24b24e923722",
+      "sku": "SKU-00009",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.04
+    },
+    {
+      "numero": 48,
+      "solicitudId": "E2E07-FAILURE-48",
+      "pedidoId": "PED-8d61b036-d3e0-44ca-a569-f5e3cd188b8f",
+      "sku": "SKU-00010",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 14,
+      "segundos": 6.85
+    },
+    {
+      "numero": 49,
+      "solicitudId": "E2E07-FAILURE-49",
+      "pedidoId": "PED-04fcbbda-d92a-4ad4-b796-85299b898f24",
+      "sku": "SKU-00011",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    },
+    {
+      "numero": 50,
+      "solicitudId": "E2E07-FAILURE-50",
+      "pedidoId": "PED-4b0ba649-307f-4aae-81af-1d4d9d7d316b",
+      "sku": "SKU-00012",
+      "httpAlta": 202,
+      "estadoFinal": "DESPACHADO",
+      "polling": 3,
+      "segundos": 1.05
+    }
+  ],
+  "estados": {
+    "DESPACHADO": 43,
+    "REQUIERE_REVISION": 7
+  },
+  "cantidadPedidosMongo": 50,
+  "stockFinal": [
+    {
+      "sku": "SKU-00002",
+      "disponible": 16,
+      "reservado": 1,
+      "total": 17
+    },
+    {
+      "sku": "SKU-00003",
+      "disponible": 26,
+      "reservado": 0,
+      "total": 26
+    },
+    {
+      "sku": "SKU-00004",
+      "disponible": 46,
+      "reservado": 0,
+      "total": 46
+    },
+    {
+      "sku": "SKU-00005",
+      "disponible": 16,
+      "reservado": 1,
+      "total": 17
+    },
+    {
+      "sku": "SKU-00006",
+      "disponible": 26,
+      "reservado": 1,
+      "total": 27
+    },
+    {
+      "sku": "SKU-00007",
+      "disponible": 46,
+      "reservado": 1,
+      "total": 47
+    },
+    {
+      "sku": "SKU-00008",
+      "disponible": 16,
+      "reservado": 0,
+      "total": 16
+    },
+    {
+      "sku": "SKU-00009",
+      "disponible": 26,
+      "reservado": 1,
+      "total": 27
+    },
+    {
+      "sku": "SKU-00010",
+      "disponible": 46,
+      "reservado": 0,
+      "total": 46
+    },
+    {
+      "sku": "SKU-00011",
+      "disponible": 16,
+      "reservado": 0,
+      "total": 16
+    },
+    {
+      "sku": "SKU-00012",
+      "disponible": 26,
+      "reservado": 1,
+      "total": 27
+    },
+    {
+      "sku": "SKU-00013",
+      "disponible": 47,
+      "reservado": 1,
+      "total": 48
+    },
+    {
+      "sku": "SKU-00014",
+      "disponible": 17,
+      "reservado": 0,
+      "total": 17
+    }
+  ],
+  "validaciones": {
+    "failureRateCorrecto": true,
+    "50Pedidos": true,
+    "soloEstadosPermitidos": true,
+    "stockCuadraConDespachos": true,
+    "sinDisponibleNegativo": true,
+    "sinReservadoNegativo": true
+  }
+}

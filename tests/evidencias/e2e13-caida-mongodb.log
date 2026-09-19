@@ -1,0 +1,52 @@
+1. Restableciendo entorno limpio...
+   Docker Compose + proxy: OK
+2. Login comprador01...
+3. Creando pedido...
+   HTTP=202, pedidoId=PED-fb86a2dd-695e-49b8-bb67-1df30ae5066c
+4. Esperando guía externa con respuesta retenida...
+   Guía externa creada. polling=9
+{
+  "estado": "EN_PROCESO",
+  "idWorker": "WRK-f30d1bf3-2727-414e-9802-48c14240accd",
+  "fechaFinProceso": null,
+  "intentoProceso": 1,
+  "estadoReserva": "RESERVADA",
+  "guiaIntentada": true,
+  "stockDisponible": 19,
+  "stockReservado": 1,
+  "guiasMongo": 0
+}
+5. Deteniendo MongoDB...
+   MongoDB detenido.
+6. Confirmando que MongoDB está realmente detenido...
+   MongoDB: DOWN
+7. Manteniendo la caída durante el procesamiento...
+8. Levantando MongoDB nuevamente...
+   MongoDB: UP
+9. Esperando estado final del pedido...
+   Estado=DESPACHADO, tiempo=10.02s
+10. Validando estado final en MongoDB...
+{
+  "estado": "DESPACHADO",
+  "fechaFinProceso": "2026-09-19T04:48:21.510Z",
+  "intentoProceso": 2,
+  "estadoReserva": "CONFIRMADA",
+  "workerFechaFin": "2026-09-19T04:48:21.516Z",
+  "workerIntentos": 2,
+  "workerLeaseVersion": 2,
+  "stockDisponible": 19,
+  "stockReservado": 0,
+  "totalStock": 19,
+  "guiasMongo": 1,
+  "guias": [
+    {
+      "numero": "G-000001",
+      "estado": "ACTIVO"
+    }
+  ]
+}
+11. Validando transportista...
+   HTTP=200, guías=1, activas=1
+
+✅ E2E 13: PASS
+Evidencia JSON: tests/evidencias/e2e13-caida-mongodb.json

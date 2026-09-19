@@ -1,0 +1,41 @@
+1. Restableciendo entorno...
+   Docker Compose: OK
+2. Login...
+3. Stock inicial...
+{'disponible': 20, 'reservado': 0, 'total': 20}
+4. Deteniendo transportista...
+   Transportista: DOWN
+5. Creando pedido afectado...
+   HTTP=202, pedidoId=PED-0912c4c1-b5dd-4e29-8e05-732e4f07ca3f
+6. Esperando REQUIERE_REVISION...
+   Estado=REQUIERE_REVISION, polling=7
+7. Validando Mongo y stock...
+{
+  "estado": "REQUIERE_REVISION",
+  "fechaFinProceso": "2026-09-19T04:51:20.053Z",
+  "pasoPendiente": "GENERAR_GUIA",
+  "stockDisponible": 19,
+  "stockReservado": 1,
+  "stockTotal": 20,
+  "guiasMongo": 0,
+  "generarGuia": [
+    {
+      "estado": "FALLIDO",
+      "intento": 1,
+      "log": "TRANSPORTISTA_CONEXION"
+    },
+    {
+      "estado": "FALLIDO",
+      "intento": 2,
+      "log": "TRANSPORTISTA_CONEXION"
+    },
+    {
+      "estado": "FALLIDO",
+      "intento": 3,
+      "log": "TRANSPORTISTA_CONEXION"
+    }
+  ]
+}
+
+✅ E2E 14: PASS
+Evidencia JSON: tests/evidencias/e2e14-caida-transportista.json

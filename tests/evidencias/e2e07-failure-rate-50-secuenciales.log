@@ -1,0 +1,92 @@
+1. Restableciendo entorno con FAILURE_RATE=0.5...
+   Docker Compose: OK
+2. Verificando configuración real del transportista...
+   FAILURE_RATE=0.5, PARTIAL_RATE=0, LATENCY_MS=3000
+3. Obteniendo productos con stock suficiente en ALM-01...
+   Productos utilizables: 13
+   SKU-00002: 20/0/20
+   SKU-00003: 30/0/30
+   SKU-00004: 50/0/50
+   SKU-00005: 20/0/20
+   SKU-00006: 30/0/30
+   SKU-00007: 50/0/50
+   SKU-00008: 20/0/20
+   SKU-00009: 30/0/30
+   SKU-00010: 50/0/50
+   SKU-00011: 20/0/20
+   SKU-00012: 30/0/30
+   SKU-00013: 50/0/50
+   SKU-00014: 20/0/20
+4. Login comprador01...
+5. Ejecutando 50 pedidos secuenciales...
+   01/50 | SKU-00002 | DESPACHADO | 2.21s
+   02/50 | SKU-00003 | DESPACHADO | 1.07s
+   03/50 | SKU-00004 | DESPACHADO | 6.96s
+   04/50 | SKU-00005 | DESPACHADO | 1.05s
+   05/50 | SKU-00006 | DESPACHADO | 1.6s
+   06/50 | SKU-00007 | REQUIERE_REVISION | 7.49s
+   07/50 | SKU-00008 | DESPACHADO | 1.58s
+   08/50 | SKU-00009 | REQUIERE_REVISION | 7.94s
+   09/50 | SKU-00010 | DESPACHADO | 1.07s
+   10/50 | SKU-00011 | DESPACHADO | 6.34s
+   11/50 | SKU-00012 | REQUIERE_REVISION | 7.43s
+   12/50 | SKU-00013 | DESPACHADO | 1.05s
+   13/50 | SKU-00014 | DESPACHADO | 2.11s
+   14/50 | SKU-00002 | REQUIERE_REVISION | 7.4s
+   15/50 | SKU-00003 | DESPACHADO | 1.05s
+   16/50 | SKU-00004 | DESPACHADO | 1.07s
+   17/50 | SKU-00005 | REQUIERE_REVISION | 7.39s
+   18/50 | SKU-00006 | DESPACHADO | 1.6s
+   19/50 | SKU-00007 | DESPACHADO | 1.57s
+   20/50 | SKU-00008 | DESPACHADO | 1.05s
+   21/50 | SKU-00009 | DESPACHADO | 1.05s
+   22/50 | SKU-00010 | DESPACHADO | 1.08s
+   23/50 | SKU-00011 | DESPACHADO | 6.32s
+   24/50 | SKU-00012 | DESPACHADO | 1.06s
+   25/50 | SKU-00013 | DESPACHADO | 1.55s
+   26/50 | SKU-00014 | DESPACHADO | 1.6s
+   27/50 | SKU-00002 | DESPACHADO | 1.06s
+   28/50 | SKU-00003 | DESPACHADO | 1.04s
+   29/50 | SKU-00004 | DESPACHADO | 1.56s
+   30/50 | SKU-00005 | DESPACHADO | 1.06s
+   31/50 | SKU-00006 | DESPACHADO | 6.29s
+   32/50 | SKU-00007 | DESPACHADO | 1.03s
+   33/50 | SKU-00008 | DESPACHADO | 3.14s
+   34/50 | SKU-00009 | DESPACHADO | 1.11s
+   35/50 | SKU-00010 | DESPACHADO | 6.32s
+   36/50 | SKU-00011 | DESPACHADO | 1.06s
+   37/50 | SKU-00012 | DESPACHADO | 1.04s
+   38/50 | SKU-00013 | REQUIERE_REVISION | 7.86s
+   39/50 | SKU-00014 | DESPACHADO | 1.61s
+   40/50 | SKU-00002 | DESPACHADO | 1.58s
+   41/50 | SKU-00003 | DESPACHADO | 1.06s
+   42/50 | SKU-00004 | DESPACHADO | 1.06s
+   43/50 | SKU-00005 | DESPACHADO | 1.05s
+   44/50 | SKU-00006 | REQUIERE_REVISION | 7.85s
+   45/50 | SKU-00007 | DESPACHADO | 6.28s
+   46/50 | SKU-00008 | DESPACHADO | 2.6s
+   47/50 | SKU-00009 | DESPACHADO | 1.04s
+   48/50 | SKU-00010 | DESPACHADO | 6.85s
+   49/50 | SKU-00011 | DESPACHADO | 1.05s
+   50/50 | SKU-00012 | DESPACHADO | 1.05s
+6. Validando estados finales...
+   DESPACHADO=43, REQUIERE_REVISION=7
+7. Validando existencia de los 50 pedidos en MongoDB...
+   Pedidos Mongo=50
+8. Validando stock contra despachos efectivos...
+   SKU-00002: inicialTotal=20, despachados=3, esperadoTotal=17, final=16+1=17
+   SKU-00003: inicialTotal=30, despachados=4, esperadoTotal=26, final=26+0=26
+   SKU-00004: inicialTotal=50, despachados=4, esperadoTotal=46, final=46+0=46
+   SKU-00005: inicialTotal=20, despachados=3, esperadoTotal=17, final=16+1=17
+   SKU-00006: inicialTotal=30, despachados=3, esperadoTotal=27, final=26+1=27
+   SKU-00007: inicialTotal=50, despachados=3, esperadoTotal=47, final=46+1=47
+   SKU-00008: inicialTotal=20, despachados=4, esperadoTotal=16, final=16+0=16
+   SKU-00009: inicialTotal=30, despachados=3, esperadoTotal=27, final=26+1=27
+   SKU-00010: inicialTotal=50, despachados=4, esperadoTotal=46, final=46+0=46
+   SKU-00011: inicialTotal=20, despachados=4, esperadoTotal=16, final=16+0=16
+   SKU-00012: inicialTotal=30, despachados=3, esperadoTotal=27, final=26+1=27
+   SKU-00013: inicialTotal=50, despachados=2, esperadoTotal=48, final=47+1=48
+   SKU-00014: inicialTotal=20, despachados=3, esperadoTotal=17, final=17+0=17
+
+✅ E2E 07: PASS
+Evidencia JSON: tests/evidencias/e2e07-failure-rate-50-secuenciales.json

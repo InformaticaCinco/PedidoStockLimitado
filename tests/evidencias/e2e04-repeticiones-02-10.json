@@ -1,0 +1,747 @@
+{
+  "escenario": "E2E 04 - Ultimas unidades",
+  "repeticion01": {
+    "resultado": "PASS",
+    "tipo": "validacion manual previa"
+  },
+  "repeticiones02a10": [
+    {
+      "repeticion": 2,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.24
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-f9f74749-c9a9-49e4-82fa-1684a1d8e97f",
+          "PED-5242efbd-c879-4b2d-8d1c-0f1b196b909c",
+          "PED-1ca68f22-45d8-476c-b8dc-271cad9ae9e5"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-f9f74749-c9a9-49e4-82fa-1684a1d8e97f",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-5242efbd-c879-4b2d-8d1c-0f1b196b909c",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-1ca68f22-45d8-476c-b8dc-271cad9ae9e5",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 45.85
+    },
+    {
+      "repeticion": 3,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.28
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-b032d44e-1f0e-4c62-9b16-59f7725d27ee",
+          "PED-11a70a21-874b-4f09-86ac-47f20150692f",
+          "PED-80e2f753-3fbd-4dde-99ce-1a38c40527c4"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-b032d44e-1f0e-4c62-9b16-59f7725d27ee",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-11a70a21-874b-4f09-86ac-47f20150692f",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-80e2f753-3fbd-4dde-99ce-1a38c40527c4",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 44.73
+    },
+    {
+      "repeticion": 4,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.16
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "OK": 3,
+          "FALLIDO": 37
+        },
+        "despachadosIds": [
+          "PED-08753e3d-83e4-4492-90df-0a3ab12536f1",
+          "PED-74bfcbf8-3c2c-46ef-8cb5-8ba24eb0ad04",
+          "PED-1a6db8c9-3dd2-42a0-a2b1-23330a5f2bff"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-08753e3d-83e4-4492-90df-0a3ab12536f1",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-74bfcbf8-3c2c-46ef-8cb5-8ba24eb0ad04",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-1a6db8c9-3dd2-42a0-a2b1-23330a5f2bff",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 44.46
+    },
+    {
+      "repeticion": 5,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "DESPACHADO": 3,
+            "ANULADO": 37
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.25
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "DESPACHADO": 3,
+          "ANULADO": 37
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-8daab8fe-af21-4f5d-809b-d99542be9516",
+          "PED-96ee3ff5-3569-49e3-90a5-daba15e58307",
+          "PED-bd1e654c-c5b4-4399-88c3-b29e8a39be96"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-8daab8fe-af21-4f5d-809b-d99542be9516",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-96ee3ff5-3569-49e3-90a5-daba15e58307",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-bd1e654c-c5b4-4399-88c3-b29e8a39be96",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 43.99
+    },
+    {
+      "repeticion": 6,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.23
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-a74d9137-a3da-4812-bbf6-1d37a61a64a5",
+          "PED-16c9013a-4753-4e9a-8276-4dac142ffe63",
+          "PED-79d25a35-55e5-4f81-be2d-a701f5177c89"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-a74d9137-a3da-4812-bbf6-1d37a61a64a5",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-16c9013a-4753-4e9a-8276-4dac142ffe63",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-79d25a35-55e5-4f81-be2d-a701f5177c89",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 45.56
+    },
+    {
+      "repeticion": 7,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "DESPACHADO": 3,
+            "ANULADO": 37
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.23
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "DESPACHADO": 3,
+          "ANULADO": 37
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-1301c18c-1ff8-47b0-bb2e-b4dd16ca7698",
+          "PED-3ac804af-b26c-4ec3-8a0b-0c5afb464a1e",
+          "PED-f46c4516-b2fb-4c72-b37c-4bc38fe69935"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-1301c18c-1ff8-47b0-bb2e-b4dd16ca7698",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-3ac804af-b26c-4ec3-8a0b-0c5afb464a1e",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-f46c4516-b2fb-4c72-b37c-4bc38fe69935",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 44.95
+    },
+    {
+      "repeticion": 8,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.2
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-3c6fc002-37f7-4528-a3c9-031de0691a35",
+          "PED-a51fd538-3a4b-49e9-8366-a49baab90cba",
+          "PED-eb5b0a6a-4049-4781-a688-4b92c43b4628"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-3c6fc002-37f7-4528-a3c9-031de0691a35",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-a51fd538-3a4b-49e9-8366-a49baab90cba",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-eb5b0a6a-4049-4781-a688-4b92c43b4628",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 44.51
+    },
+    {
+      "repeticion": 9,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.29
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-ff2f8cc7-8ab0-4294-91d1-710784b7d17c",
+          "PED-304d5a3f-87af-4bf6-b005-91d4e9f6d3cb",
+          "PED-53651368-3d65-4c6e-b030-c514458a8639"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-ff2f8cc7-8ab0-4294-91d1-710784b7d17c",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-304d5a3f-87af-4bf6-b005-91d4e9f6d3cb",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-53651368-3d65-4c6e-b030-c514458a8639",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 46.03
+    },
+    {
+      "repeticion": 10,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 3,
+        "reservado": 0,
+        "total": 3
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 40,
+        "pedidoIdUnicos": 40
+      },
+      "polling": {
+        "snapshot": {
+          "totalPedidos": 40,
+          "porEstado": {
+            "ANULADO": 37,
+            "DESPACHADO": 3
+          },
+          "disponible": 0,
+          "reservado": 0
+        },
+        "muestras": 2,
+        "minDisponibleObservado": 0,
+        "minReservadoObservado": 0,
+        "segundos": 2.17
+      },
+      "final": {
+        "totalPedidos": 40,
+        "porEstado": {
+          "ANULADO": 37,
+          "DESPACHADO": 3
+        },
+        "stockDisponible": 0,
+        "stockReservado": 0,
+        "stockTotal": 0,
+        "procesosGenerarGuiaOK": 3,
+        "guiasTotales": 3,
+        "guiasDespachados": 3,
+        "guiasAnulados": 0,
+        "reservaPorEstado": {
+          "FALLIDO": 37,
+          "OK": 3
+        },
+        "despachadosIds": [
+          "PED-9b4a8090-7de2-4811-ace1-a1c0919d728f",
+          "PED-1788098a-ca43-4b8e-ba46-fe72fc755b37",
+          "PED-6ff34081-3c5f-4cfd-b10a-e47407fd7418"
+        ]
+      },
+      "transportista": {
+        "pedidosConUnaGuiaActiva": 3,
+        "detalle": [
+          {
+            "pedidoId": "PED-9b4a8090-7de2-4811-ace1-a1c0919d728f",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-1788098a-ca43-4b8e-ba46-fe72fc755b37",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          },
+          {
+            "pedidoId": "PED-6ff34081-3c5f-4cfd-b10a-e47407fd7418",
+            "http": 200,
+            "guiasActivas": 1,
+            "ok": true
+          }
+        ]
+      },
+      "validaciones": {
+        "estados": true,
+        "stock": true,
+        "guias": true,
+        "nuncaNegativoObservado": true
+      },
+      "duracionSegundos": 45.52
+    }
+  ]
+}

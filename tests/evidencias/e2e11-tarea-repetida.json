@@ -1,0 +1,134 @@
+{
+  "escenario": "E2E 11 - Tarea repetida",
+  "resultado": "PASS",
+  "antes": {
+    "pedidoId": "PED-18000cdf-54ca-4f5a-ba5e-21b25e2d6082",
+    "estado": "DESPACHADO",
+    "idWorker": "WRK-b8fa4dab-144b-4611-9b64-46dfe04f4753",
+    "fechaFinProceso": "2026-09-19T04:31:37.975Z",
+    "intentoProceso": 1,
+    "estadoReserva": "CONFIRMADA",
+    "workerFechaFin": "2026-09-19T04:31:37.980Z",
+    "workerIntentos": 1,
+    "workerLeaseOwner": "ceea0ed6-d7d5-4853-9fe7-1761d067c314",
+    "workerLeaseVersion": 1,
+    "workerLeaseHeartbeat": "2026-09-19T04:31:37.621Z",
+    "stockDisponible": 19,
+    "stockReservado": 0,
+    "guiasMongo": 1,
+    "guiaIds": [
+      "GUI-41ea8801-0499-49c2-85a5-4b68cf57abc4"
+    ],
+    "procesosTotal": 4,
+    "procesos": [
+      {
+        "id": "PRC-474951ed-5d6d-480a-9cf3-7d8b4982fa20",
+        "paso": "RESERVAR_STOCK",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "DSP-7f101714-0387-40c8-8635-639691831f2d",
+        "paso": "CALCULAR_ENVIO",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "DSP-3ccd042d-b52c-43f5-bead-08236d5c7f62",
+        "paso": "GENERAR_GUIA",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "PRC-b30d459a-e49f-4f3e-b4e1-9f38aaa70489",
+        "paso": "CONFIRMAR_DESPACHO",
+        "estado": "OK",
+        "nroIntento": 1
+      }
+    ]
+  },
+  "comandoMongoExacto": "docker compose exec -T mongodb mongosh --quiet \"mongodb://localhost:27017/pedidos_stock?directConnection=true\" --eval 'const workerId=\"WRK-b8fa4dab-144b-4611-9b64-46dfe04f4753\";\ndb.Worker.updateOne(\n  {\n    _id:workerId,\n    FechaFin:{$ne:null}\n  },\n  {\n    $set:{\n      FechaFin:null,\n      LeaseOwner:\"e2e11-owner-vencido\",\n      LeaseHeartbeat:new Date(Date.now()-120000),\n      FechaModificacion:new Date(),\n      UsuarioModificacion:\"e2e11\"\n    }\n  }\n);'",
+  "javascriptMongo": "const workerId=\"WRK-b8fa4dab-144b-4611-9b64-46dfe04f4753\";\ndb.Worker.updateOne(\n  {\n    _id:workerId,\n    FechaFin:{$ne:null}\n  },\n  {\n    $set:{\n      FechaFin:null,\n      LeaseOwner:\"e2e11-owner-vencido\",\n      LeaseHeartbeat:new Date(Date.now()-120000),\n      FechaModificacion:new Date(),\n      UsuarioModificacion:\"e2e11\"\n    }\n  }\n);",
+  "despuesMutacion": {
+    "fechaFin": null,
+    "intentos": 1,
+    "leaseOwner": "e2e11-owner-vencido",
+    "leaseVersion": 1,
+    "leaseHeartbeat": "2026-09-19T04:29:39.650Z"
+  },
+  "recuperacion": {
+    "fechaFin": "2026-09-19T04:31:40.044Z",
+    "intentos": 2,
+    "leaseOwner": "ceea0ed6-d7d5-4853-9fe7-1761d067c314",
+    "leaseVersion": 2,
+    "leaseHeartbeat": "2026-09-19T04:31:40.027Z"
+  },
+  "despues": {
+    "estado": "DESPACHADO",
+    "fechaFinProceso": "2026-09-19T04:31:37.975Z",
+    "intentoProceso": 1,
+    "estadoReserva": "CONFIRMADA",
+    "workerFechaFin": "2026-09-19T04:31:40.044Z",
+    "workerIntentos": 2,
+    "workerLeaseVersion": 2,
+    "stockDisponible": 19,
+    "stockReservado": 0,
+    "guiasMongo": 1,
+    "guiaIds": [
+      "GUI-41ea8801-0499-49c2-85a5-4b68cf57abc4"
+    ],
+    "procesosTotal": 4,
+    "procesos": [
+      {
+        "id": "PRC-474951ed-5d6d-480a-9cf3-7d8b4982fa20",
+        "paso": "RESERVAR_STOCK",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "DSP-7f101714-0387-40c8-8635-639691831f2d",
+        "paso": "CALCULAR_ENVIO",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "DSP-3ccd042d-b52c-43f5-bead-08236d5c7f62",
+        "paso": "GENERAR_GUIA",
+        "estado": "OK",
+        "nroIntento": 1
+      },
+      {
+        "id": "PRC-b30d459a-e49f-4f3e-b4e1-9f38aaa70489",
+        "paso": "CONFIRMAR_DESPACHO",
+        "estado": "OK",
+        "nroIntento": 1
+      }
+    ]
+  },
+  "transportista": {
+    "http": 200,
+    "cantidad": 1,
+    "activas": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  },
+  "validaciones": {
+    "workerVencidoManualmente": true,
+    "workerRetomado": true,
+    "workerIntentosIncrementado": true,
+    "leaseVersionIncrementado": true,
+    "estadoPedidoNoCambio": true,
+    "intentoPedidoNoCambio": true,
+    "stockNoCambio": true,
+    "guiaMongoNoCambio": true,
+    "guiaTransportistaNoCambio": true,
+    "pasosNoDuplicados": true
+  }
+}

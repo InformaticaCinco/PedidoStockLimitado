@@ -1,0 +1,24 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Login comprador01...
+3. Campo texto con operador MongoDB...
+   HTTP=400
+4. Cuerpo con tipos incorrectos...
+   HTTP=400
+5. Verificando claves almacenadas...
+{
+  "usuarios": 44,
+  "camposClave": [
+    "ClaveHash"
+  ],
+  "hashesDetectados": 44,
+  "textoPlano": false,
+  "camposSospechosos": []
+}
+6. Obteniendo datos personales conocidos para revisar logs...
+   Valores personales a buscar=1
+7. Revisando logs de todos los servicios...
+   Credenciales/PII encontrados en logs=0
+
+✅ E2E 21: PASS
+Evidencia JSON: tests/evidencias/e2e21-validacion-seguridad.json

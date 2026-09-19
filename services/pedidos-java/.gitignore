@@ -1,0 +1,4 @@
+.build/
+target/
+.env
+!.env.example

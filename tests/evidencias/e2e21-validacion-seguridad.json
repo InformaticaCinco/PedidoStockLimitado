@@ -1,0 +1,17 @@
+{
+  "escenario": "E2E 21 - Validacion de entrada y seguridad",
+  "resultado": "PASS",
+  "operadorMongoHttp": 400,
+  "tipoIncorrectoHttp": 400,
+  "claves": {
+    "usuarios": 44,
+    "camposClave": [
+      "ClaveHash"
+    ],
+    "hashesDetectados": 44,
+    "textoPlano": false,
+    "camposSospechosos": []
+  },
+  "piiRevisados": 1,
+  "sensiblesEnLogs": 0
+}

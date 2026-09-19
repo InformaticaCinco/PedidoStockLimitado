@@ -1,0 +1,39 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Login comprador01...
+
+=== CASO A: ANULAR PEDIDO DESPACHADO ===
+3. Creando pedido que debe despacharse...
+   HTTP=202, pedidoId=PED-3aa42db3-4bf2-4170-b614-d2ed7bef971b
+4. Esperando DESPACHADO...
+   Estado=DESPACHADO, polling=2
+5. Intentando anular pedido ya DESPACHADO...
+   HTTP=409, message=Pedido ya despachado
+6. Verificando que el pedido despachado no cambió...
+{
+  "estado": "DESPACHADO",
+  "stockDisponible": 19,
+  "stockReservado": 0,
+  "guias": 1
+}
+
+=== CASO B: ANULACION REPETIDA DE ANULADO ===
+7. Creando pedido que será ANULADO por falta de stock...
+   HTTP=202, pedidoId=PED-fde001c6-01d9-462c-81db-eb5642773246
+8. Esperando ANULADO...
+   Estado=ANULADO, polling=2
+9. Solicitando anulación sobre pedido ya ANULADO...
+   Primera repetición: HTTP=200, message=OK
+10. Repitiendo nuevamente la anulación...
+   Segunda repetición: HTTP=200, message=OK
+11. Verificando ausencia de efectos adicionales...
+{
+  "estado": "ANULADO",
+  "stockDisponible": 3,
+  "stockReservado": 0,
+  "guias": 0,
+  "generarGuia": 0
+}
+
+✅ E2E 10: PASS
+Evidencia JSON: tests/evidencias/e2e10-anulacion-estados-finales.json

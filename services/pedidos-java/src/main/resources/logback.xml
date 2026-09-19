@@ -1,0 +1,6 @@
+<configuration>
+  <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender"><encoder class="net.logstash.logback.encoder.LogstashEncoder"/></appender>
+  <!-- Avoid library diagnostics exposing connection strings or request details. -->
+  <logger name="org.mongodb" level="OFF"/><logger name="org.eclipse.jetty" level="OFF"/><logger name="io.javalin" level="OFF"/>
+  <root level="INFO"><appender-ref ref="JSON"/></root>
+</configuration>

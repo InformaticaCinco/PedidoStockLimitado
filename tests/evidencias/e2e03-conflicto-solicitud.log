@@ -1,0 +1,29 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Validando stock inicial SKU-00002...
+   Stock inicial=20/0
+3. Login comprador01...
+4. Primer envío: contenido original...
+   HTTP=202, pedidoId=PED-b490d129-4285-440c-af71-e2a2971c76b9
+5. Segundo envío: misma solicitudId, contenido distinto...
+   HTTP=409, message=solicitudId ya utilizada con otro contenido
+6. Esperando estado final del pedido original...
+   Estado=DESPACHADO, polling=3
+7. Validando que el 409 no produjo efectos adicionales...
+{
+  "cantidadPedidos": 1,
+  "pedidoId": "PED-b490d129-4285-440c-af71-e2a2971c76b9",
+  "estadoPedido": "DESPACHADO",
+  "reservarStock": 1,
+  "calcularEnvio": 1,
+  "generarGuia": 1,
+  "confirmarDespacho": 1,
+  "guiasMongo": 1,
+  "stockDisponible": 19,
+  "stockReservado": 0
+}
+8. Validando transportista...
+   HTTP=200, guías=1, activas=1
+
+✅ E2E 03: PASS
+Evidencia JSON: tests/evidencias/e2e03-conflicto-solicitud.json

@@ -1,0 +1,30 @@
+name: Compilación y pruebas Docker
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validar infraestructura
+        run: |
+          bash -n scripts/run-tests.sh scripts/ci/in-container.sh
+          docker compose config --quiet
+      - name: Compilar y ejecutar suites en Docker linux/amd64
+        run: ./scripts/run-tests.sh
+      - name: Conservar resultados de esta ejecución
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-pruebas-docker
+          path: .build/ci/
+          if-no-files-found: warn
+          include-hidden-files: true

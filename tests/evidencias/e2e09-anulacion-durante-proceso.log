@@ -1,0 +1,79 @@
+1. Restableciendo entorno con proxy controlado...
+   Docker Compose: OK
+2. Verificando que .NET usa el proxy de integración...
+   TRANSPORTISTA_BASE_URL=http://transportista-proxy:19090
+3. Validando stock inicial...
+   Stock inicial=20/0/20
+4. Login comprador01...
+5. Registrando pedido...
+   HTTP=202, pedidoId=PED-02fbb0eb-3074-4029-949b-860335244b84
+6. Esperando que el transportista REAL cree la guía...
+   Guía creada detectada en intento 10
+7. Solicitando anulación MIENTRAS la respuesta de guía sigue retenida...
+   HTTP=202, tiempo=25.14ms, message=Aceptado
+8. Esperando estado final mediante polling...
+   Estado=ANULADO, polling=6
+9. Validando stock, guía y compensaciones en MongoDB...
+{
+  "estadoPedido": "ANULADO",
+  "anulacionSolicitada": true,
+  "stockDisponible": 20,
+  "stockReservado": 0,
+  "stockTotal": 20,
+  "cantidadGuiasMongo": 1,
+  "estadoGuiaMongo": "ANULADO",
+  "compensaciones": [
+    {
+      "Paso": "ANULAR_GUIA",
+      "Estado": "OK",
+      "Intento": 1,
+      "FechaInicio": "2026-09-19T04:09:29.110Z",
+      "FechaFin": "2026-09-19T04:09:29.122Z"
+    },
+    {
+      "Paso": "LIBERAR_STOCK",
+      "Estado": "OK",
+      "Intento": 1,
+      "FechaInicio": "2026-09-19T04:09:29.135Z",
+      "FechaFin": "2026-09-19T04:09:29.147Z"
+    }
+  ],
+  "procesos": [
+    {
+      "TipoProceso": "PROCESO",
+      "Paso": "RESERVAR_STOCK",
+      "Estado": "OK",
+      "Intento": 1
+    },
+    {
+      "TipoProceso": "PROCESO",
+      "Paso": "CALCULAR_ENVIO",
+      "Estado": "OK",
+      "Intento": 1
+    },
+    {
+      "TipoProceso": "PROCESO",
+      "Paso": "GENERAR_GUIA",
+      "Estado": "OK",
+      "Intento": 1
+    },
+    {
+      "TipoProceso": "COMPENSACION",
+      "Paso": "ANULAR_GUIA",
+      "Estado": "OK",
+      "Intento": 1
+    },
+    {
+      "TipoProceso": "COMPENSACION",
+      "Paso": "LIBERAR_STOCK",
+      "Estado": "OK",
+      "Intento": 1
+    }
+  ]
+}
+   Compensaciones=ANULAR_GUIA -> LIBERAR_STOCK
+10. Validando que no exista guía ACTIVA en el transportista...
+   HTTP=404, guías devueltas=0, activas=0
+
+✅ E2E 09: PASS
+Evidencia JSON: tests/evidencias/e2e09-anulacion-durante-proceso.json

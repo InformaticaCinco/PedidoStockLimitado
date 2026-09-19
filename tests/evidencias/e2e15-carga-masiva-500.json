@@ -1,0 +1,28 @@
+{
+  "escenario": "E2E 15 - Carga masiva 500 filas",
+  "resultado": "PASS",
+  "cargaId": "CG-25702ee8-60b5-4f8b-a3c9-0047aea4460b",
+  "totales": {
+    "filas": 500,
+    "aceptadas": 439,
+    "rechazadas": 53,
+    "duplicadas": 8
+  },
+  "reporte": {
+    "archivo": "tests/evidencias/e2e15-reporte.xlsx",
+    "filas": 500,
+    "bytes": 41929,
+    "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  "criticos": {
+    "total": 20,
+    "terminales": 20,
+    "estados": {
+      "ANULADO": 17,
+      "DESPACHADO": 3
+    },
+    "disponible": 0,
+    "reservado": 0,
+    "guiasActivas": 3
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "escenario": "E2E 13 - Caida MongoDB durante pedido",
+  "resultado": "PASS",
+  "pedidoId": "PED-fb86a2dd-695e-49b8-bb67-1df30ae5066c",
+  "puntoCaida": {
+    "estado": "EN_PROCESO",
+    "idWorker": "WRK-f30d1bf3-2727-414e-9802-48c14240accd",
+    "fechaFinProceso": null,
+    "intentoProceso": 1,
+    "estadoReserva": "RESERVADA",
+    "guiaIntentada": true,
+    "stockDisponible": 19,
+    "stockReservado": 1,
+    "guiasMongo": 0
+  },
+  "comandoCaida": "docker compose ... stop mongodb",
+  "comandoRecuperacion": "docker compose ... up -d --wait mongodb",
+  "finalApi": {
+    "estado": "DESPACHADO",
+    "polling": 14,
+    "segundos": 10.02
+  },
+  "finalMongo": {
+    "estado": "DESPACHADO",
+    "fechaFinProceso": "2026-09-19T04:48:21.510Z",
+    "intentoProceso": 2,
+    "estadoReserva": "CONFIRMADA",
+    "workerFechaFin": "2026-09-19T04:48:21.516Z",
+    "workerIntentos": 2,
+    "workerLeaseVersion": 2,
+    "stockDisponible": 19,
+    "stockReservado": 0,
+    "totalStock": 19,
+    "guiasMongo": 1,
+    "guias": [
+      {
+        "numero": "G-000001",
+        "estado": "ACTIVO"
+      }
+    ]
+  },
+  "transportista": {
+    "http": 200,
+    "guias": 1,
+    "activas": 1
+  }
+}

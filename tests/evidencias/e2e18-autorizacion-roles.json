@@ -1,0 +1,22 @@
+{
+  "escenario": "E2E 18 - Autorizacion por rol",
+  "resultado": "PASS",
+  "compradorModificaStock": 403,
+  "vendedorRegistraPedido": 403,
+  "apiAdmin403": {
+    "comprador": 403,
+    "vendedor": 403
+  },
+  "navegador": {
+    "comprador": {
+      "usuario": "comprador01",
+      "url": "http://localhost:8080/comprador/catalogo",
+      "remoteEntry": 0
+    },
+    "vendedor": {
+      "usuario": "vendedor01",
+      "url": "http://localhost:8080/vendedor/productos",
+      "remoteEntry": 0
+    }
+  }
+}

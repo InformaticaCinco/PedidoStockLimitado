@@ -1,0 +1,8 @@
+node_modules
+dist
+.angular
+.build
+.git
+.gitignore
+*.log
+tests

@@ -1,0 +1,594 @@
+{
+  "escenario": "E2E 05 - 40 peticiones simultaneas identicas",
+  "repeticion01": {
+    "resultado": "PASS",
+    "tipo": "validacion manual previa"
+  },
+  "repeticiones02a10": [
+    {
+      "repeticion": 2,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.58,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "RECIBIDO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-6e9bee35-13c2-405d-92d7-ecea5ad13a1c",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 40.6
+    },
+    {
+      "repeticion": 3,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.59,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-f3259b72-e27e-4230-a5a1-74905f604ffc",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 39.54
+    },
+    {
+      "repeticion": 4,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.59,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-b399909b-88ff-4f02-aa61-0d895bd65172",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 41.19
+    },
+    {
+      "repeticion": 5,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.58,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-5c520f6e-8165-4792-a445-2ca1f53220a0",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 40.15
+    },
+    {
+      "repeticion": 6,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.58,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-af1724e9-2434-4bc6-8418-65801171de39",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 41.13
+    },
+    {
+      "repeticion": 7,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.59,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-364451cc-fa4d-45d9-ad75-25960eb97762",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 40.3
+    },
+    {
+      "repeticion": 8,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.6,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-9b32522a-c9c6-41ff-8391-d9d0a3377572",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 40.22
+    },
+    {
+      "repeticion": 9,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.6,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-2e185685-26f7-4c62-a876-1ad23c22f1f2",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 41.15
+    },
+    {
+      "repeticion": 10,
+      "resultado": "PASS",
+      "baseline": {
+        "disponible": 20,
+        "reservado": 0,
+        "total": 20
+      },
+      "creacion": {
+        "total": 40,
+        "http202": 1,
+        "http200": 39,
+        "otrosHttp": 0,
+        "pedidoIdUnicos": 1
+      },
+      "polling": {
+        "estadoFinal": "DESPACHADO",
+        "muestras": 2,
+        "segundos": 0.59,
+        "detalle": [
+          {
+            "http": 200,
+            "estado": "EN_PROCESO"
+          },
+          {
+            "http": 200,
+            "estado": "DESPACHADO"
+          }
+        ]
+      },
+      "mongo": {
+        "cantidadPedidos": 1,
+        "estadoPedido": "DESPACHADO",
+        "pedidoId": "PED-1a861ec8-7bd1-4e42-b5a5-c5d537cee1c6",
+        "reservarStock": 1,
+        "calcularEnvio": 1,
+        "generarGuia": 1,
+        "confirmarDespacho": 1,
+        "guiasMongo": 1,
+        "stockDisponible": 19,
+        "stockReservado": 0,
+        "stockTotal": 19
+      },
+      "transportista": {
+        "http": 200,
+        "cantidadGuias": 1,
+        "guiasActivas": 1,
+        "respuesta": {
+          "numeroGuia": "G-000001",
+          "guias": [
+            {
+              "numeroGuia": "G-000001",
+              "estado": "ACTIVA"
+            }
+          ]
+        }
+      },
+      "validaciones": {
+        "httpIdempotencia": true,
+        "estadoFinal": true,
+        "mongo": true,
+        "transportista": true
+      },
+      "duracionSegundos": 40.16
+    }
+  ]
+}

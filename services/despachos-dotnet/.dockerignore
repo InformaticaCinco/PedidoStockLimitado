@@ -1,0 +1,16 @@
+.git
+.vscode
+.build
+**/target
+**/bin
+**/obj
+.venv
+**/__pycache__
+.pytest_cache
+**/TestResults
+*.log
+.DS_Store
+.env
+.env.*
+tests
+src/test

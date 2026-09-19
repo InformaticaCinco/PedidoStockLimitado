@@ -1,0 +1,102 @@
+{
+  "escenario": "E2E 08 - PARTIAL_RATE=1.0 guia unica",
+  "resultado": "PASS",
+  "configuracion": {
+    "FAILURE_RATE": "0",
+    "PARTIAL_RATE": "1.0"
+  },
+  "stockInicial": {
+    "disponible": 20,
+    "reservado": 0
+  },
+  "alta": {
+    "http": 202,
+    "pedidoId": "PED-584b3205-35f9-4f89-b479-250e60150b89"
+  },
+  "estadoFinal": "DESPACHADO",
+  "polling": 2,
+  "detalleFinal": {
+    "pedidoId": "PED-584b3205-35f9-4f89-b479-250e60150b89",
+    "estado": "DESPACHADO",
+    "almacenId": "ALM-01",
+    "items": [
+      {
+        "sku": "SKU-00002",
+        "vendedorId": "USR-VEN-01",
+        "cantidad": 1,
+        "precioUnitario": 11.0,
+        "pesoUnitario": 0.5,
+        "subtotal": 11.0
+      }
+    ],
+    "subtotal": 11.0,
+    "envio": 8.0,
+    "total": 19.0,
+    "pesoTotal": 0.5,
+    "anulacionSolicitada": false,
+    "solicitudId": "E2E08-PARTIAL-001",
+    "zonaEntrega": "LIMA_METROPOLITANA",
+    "correlationId": "4a17e2da-79a5-44e6-8bd8-fa93b800bbdd",
+    "guia": {
+      "id": "GUI-3ba458ac-e29c-44c0-9fe2-7510da0aa263",
+      "estado": "ACTIVO"
+    },
+    "pasos": [
+      {
+        "paso": "RESERVAR_STOCK",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 40
+      },
+      {
+        "paso": "CALCULAR_ENVIO",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 18
+      },
+      {
+        "paso": "GENERAR_GUIA",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 49
+      },
+      {
+        "paso": "CONFIRMAR_DESPACHO",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 12
+      }
+    ],
+    "compensaciones": []
+  },
+  "mongo": {
+    "estado": "DESPACHADO",
+    "reservarStock": 1,
+    "generarGuia": 1,
+    "confirmarDespacho": 1,
+    "guiasMongo": 1,
+    "disponible": 19,
+    "reservado": 0
+  },
+  "transportista": {
+    "http": 200,
+    "cantidadGuias": 1,
+    "guiasActivas": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  },
+  "validaciones": {
+    "partialRateActivo": true,
+    "pedidoDespachado": true,
+    "unaGuiaMongo": true,
+    "unaGuiaActivaTransportista": true,
+    "stockCorrecto": true
+  }
+}

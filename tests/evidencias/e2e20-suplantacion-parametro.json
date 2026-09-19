@@ -1,0 +1,11 @@
+{
+  "escenario": "E2E 20 - Suplantacion por parametro",
+  "resultado": "PASS",
+  "comportamiento": "RECHAZADO",
+  "http": 400,
+  "pedidoCreado": false,
+  "usuarioToken": "USR-COM-001",
+  "clienteToken": "CLI-0001",
+  "clienteIntentado": "CLI-0002",
+  "suplantacionImposible": true
+}

@@ -1,0 +1,54 @@
+# Java
+target/
+.gradle/
+**/.build/
+
+# .NET
+bin/
+obj/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node / Angular
+node_modules/
+dist/
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Variables de entorno reales
+.env
+.env.*
+
+# PERMITIR archivos de ejemplo
+!.env.example
+!.env.*.example
+!**/.env.example
+!**/.env.*.example
+
+# Logs / temporales
+*.log
+*.tmp
+
+# Angular cache
+.angular/
+**/.angular/
+
+# Cobertura / reportes temporales
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Las evidencias E2E sí se versionan aunque sean .log
+!tests/evidencias/
+!tests/evidencias/*.log

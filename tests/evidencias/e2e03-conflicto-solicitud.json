@@ -1,0 +1,46 @@
+{
+  "escenario": "E2E 03 - Misma solicitudId con contenido distinto",
+  "resultado": "PASS",
+  "stockInicial": {
+    "disponible": 20,
+    "reservado": 0
+  },
+  "respuestas": {
+    "primero": {
+      "http": 202,
+      "pedidoId": "PED-b490d129-4285-440c-af71-e2a2971c76b9"
+    },
+    "segundo": {
+      "http": 409,
+      "message": "solicitudId ya utilizada con otro contenido",
+      "data": null
+    }
+  },
+  "estadoFinal": "DESPACHADO",
+  "mongo": {
+    "cantidadPedidos": 1,
+    "pedidoId": "PED-b490d129-4285-440c-af71-e2a2971c76b9",
+    "estadoPedido": "DESPACHADO",
+    "reservarStock": 1,
+    "calcularEnvio": 1,
+    "generarGuia": 1,
+    "confirmarDespacho": 1,
+    "guiasMongo": 1,
+    "stockDisponible": 19,
+    "stockReservado": 0
+  },
+  "transportista": {
+    "http": 200,
+    "cantidad": 1,
+    "activas": 1,
+    "respuesta": {
+      "numeroGuia": "G-000001",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ACTIVA"
+        }
+      ]
+    }
+  }
+}

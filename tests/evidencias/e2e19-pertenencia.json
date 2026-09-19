@@ -1,0 +1,15 @@
+{
+  "escenario": "E2E 19 - Autorizacion por pertenencia",
+  "resultado": "PASS",
+  "pedidoId": "PED-b3ab76ab-9a50-4fbd-a116-57c76c5becdf",
+  "compradorAjenoConsulta": 404,
+  "compradorAjenoAnula": 404,
+  "vendedorAjenoStock": 403,
+  "pedidoAjenoOcultoEnListado": true,
+  "skusVendedorA": [
+    "SKU-00002"
+  ],
+  "skusVendedorB": [
+    "SKU-00015"
+  ]
+}

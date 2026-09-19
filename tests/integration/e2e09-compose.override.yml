@@ -1,0 +1,35 @@
+services:
+  transportista-proxy:
+    image: pedido-stock/transportista-simulator:1.0.0
+    entrypoint:
+      - python
+    command:
+      - /testproxy/e2e09_transportista_proxy.py
+    volumes:
+      - ./tests/integration/e2e09_transportista_proxy.py:/testproxy/e2e09_transportista_proxy.py:ro
+    environment:
+      TARGET_URL: http://transportista-simulator:9090
+      DELAY_SECONDS: "2.5"
+    ports:
+      - "19090:19090"
+    depends_on:
+      transportista-simulator:
+        condition: service_healthy
+    networks:
+      - pedidos-network
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://localhost:19090/test-health', timeout=2).close()"
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+  despachos-dotnet:
+    environment:
+      TRANSPORTISTA_BASE_URL: http://transportista-proxy:19090
+    depends_on:
+      transportista-proxy:
+        condition: service_healthy

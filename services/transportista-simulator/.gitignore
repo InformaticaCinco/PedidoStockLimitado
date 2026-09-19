@@ -1,0 +1,8 @@
+.venv/
+.build/
+__pycache__/
+.pytest_cache/
+**/bin/
+**/obj/
+.env
+!.env.example

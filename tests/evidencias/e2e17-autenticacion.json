@@ -1,0 +1,32 @@
+{
+  "escenario": "E2E 17 - Autenticacion",
+  "resultado": "PASS",
+  "loginsCorrectos": [
+    "ADMIN",
+    "VENDEDOR",
+    "COMPRADOR"
+  ],
+  "claveIncorrecta": 401,
+  "usuarioInexistente": 401,
+  "mismoMensajeCredenciales": true,
+  "sinToken": {
+    "java": 401,
+    "dotnet": 401,
+    "python": 401
+  },
+  "tokenVencido": {
+    "java": 401,
+    "dotnet": 401,
+    "python": 401
+  },
+  "firmaAlterada": {
+    "java": 401,
+    "dotnet": 401,
+    "python": 401
+  },
+  "audIncorrecto": {
+    "java": 401,
+    "dotnet": 401,
+    "python": 401
+  }
+}

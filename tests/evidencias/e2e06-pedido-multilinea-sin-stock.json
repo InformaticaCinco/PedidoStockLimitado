@@ -1,0 +1,43 @@
+{
+  "escenario": "E2E 06 - Pedido multilinea con stock insuficiente",
+  "resultado": "PASS",
+  "stockInicial": {
+    "sku00001": {
+      "disponible": 3,
+      "reservado": 0
+    },
+    "sku00002": {
+      "disponible": 20,
+      "reservado": 0
+    }
+  },
+  "alta": {
+    "http": 202,
+    "pedidoId": "PED-c0edf089-c813-40fe-84c6-ba36c703fb20"
+  },
+  "estadoFinal": "ANULADO",
+  "polling": 2,
+  "mongo": {
+    "estado": "ANULADO",
+    "sku00001": {
+      "disponible": 3,
+      "reservado": 0
+    },
+    "sku00002": {
+      "disponible": 20,
+      "reservado": 0
+    },
+    "reservarStock": 1,
+    "calcularEnvio": 0,
+    "generarGuia": 0,
+    "confirmarDespacho": 0,
+    "guiasMongo": 0
+  },
+  "validaciones": {
+    "pedidoAnulado": true,
+    "skuSinStockSinCambios": true,
+    "otraLineaSinCambios": true,
+    "sinReservaParcial": true,
+    "sinGuia": true
+  }
+}

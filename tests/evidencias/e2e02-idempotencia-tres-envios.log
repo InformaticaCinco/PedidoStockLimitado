@@ -1,0 +1,29 @@
+1. Restableciendo entorno limpio...
+   Docker Compose: OK
+2. Validando stock inicial SKU-00002...
+   Stock inicial=20/0
+3. Login comprador01...
+4. Enviando exactamente el mismo pedido 3 veces...
+   Envío 1: HTTP=202, pedidoId=PED-387184a6-f4b7-442e-8c92-f70984083bc6, estado=RECIBIDO
+   Envío 2: HTTP=200, pedidoId=PED-387184a6-f4b7-442e-8c92-f70984083bc6, estado=RECIBIDO
+   Envío 3: HTTP=200, pedidoId=PED-387184a6-f4b7-442e-8c92-f70984083bc6, estado=RECIBIDO
+5. Esperando estado final mediante polling...
+   Estado=DESPACHADO, polling=2
+6. Validando MongoDB...
+{
+  "cantidadPedidos": 1,
+  "pedidoId": "PED-387184a6-f4b7-442e-8c92-f70984083bc6",
+  "estadoPedido": "DESPACHADO",
+  "reservarStock": 1,
+  "calcularEnvio": 1,
+  "generarGuia": 1,
+  "confirmarDespacho": 1,
+  "guiasMongo": 1,
+  "stockDisponible": 19,
+  "stockReservado": 0
+}
+7. Validando transportista...
+   HTTP=200, guías=1, activas=1
+
+✅ E2E 02: PASS
+Evidencia JSON: tests/evidencias/e2e02-idempotencia-tres-envios.json

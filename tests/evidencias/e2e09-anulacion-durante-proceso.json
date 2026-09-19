@@ -1,0 +1,177 @@
+{
+  "escenario": "E2E 09 - Anulacion durante proceso con compensacion",
+  "resultado": "PASS",
+  "stockInicial": {
+    "disponible": 20,
+    "reservado": 0,
+    "total": 20
+  },
+  "alta": {
+    "http": 202,
+    "pedidoId": "PED-02fbb0eb-3074-4029-949b-860335244b84"
+  },
+  "proxyAntesAnulacion": {
+    "guiaCreada": true,
+    "pedidoId": "PED-02fbb0eb-3074-4029-949b-860335244b84",
+    "statusTransportista": 201,
+    "postGuiasInterceptados": 1
+  },
+  "anulacion": {
+    "http": 202,
+    "respuesta": {
+      "code": 202,
+      "statusCode": "HTTP_202_ACCEPTED",
+      "message": "Aceptado",
+      "data": {
+        "anulacionSolicitada": true,
+        "solicitudId": "E2E09-ANULACION-001",
+        "estadoReserva": "RESERVADA",
+        "pedidoId": "PED-02fbb0eb-3074-4029-949b-860335244b84",
+        "estado": "EN_PROCESO"
+      }
+    },
+    "ms": 25.14
+  },
+  "estadoFinal": "ANULADO",
+  "detalleFinal": {
+    "pedidoId": "PED-02fbb0eb-3074-4029-949b-860335244b84",
+    "estado": "ANULADO",
+    "almacenId": "ALM-01",
+    "items": [
+      {
+        "sku": "SKU-00002",
+        "vendedorId": "USR-VEN-01",
+        "cantidad": 1,
+        "precioUnitario": 11.0,
+        "pesoUnitario": 0.5,
+        "subtotal": 11.0
+      }
+    ],
+    "subtotal": 11.0,
+    "envio": 8.0,
+    "total": 19.0,
+    "pesoTotal": 0.5,
+    "anulacionSolicitada": true,
+    "solicitudId": "E2E09-ANULACION-001",
+    "zonaEntrega": "LIMA_METROPOLITANA",
+    "correlationId": "e94d2f0e-23ec-48aa-a6a8-77f198ce70aa",
+    "guia": {
+      "id": "GUI-679c6272-388b-4fca-a5be-b357919bebfe",
+      "estado": "ANULADO"
+    },
+    "pasos": [
+      {
+        "paso": "RESERVAR_STOCK",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 38
+      },
+      {
+        "paso": "CALCULAR_ENVIO",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 19
+      },
+      {
+        "paso": "GENERAR_GUIA",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 2606
+      }
+    ],
+    "compensaciones": [
+      {
+        "paso": "ANULAR_GUIA",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 12
+      },
+      {
+        "paso": "LIBERAR_STOCK",
+        "estado": "OK",
+        "intentos": 1,
+        "ms": 12
+      }
+    ]
+  },
+  "polling": 6,
+  "mongo": {
+    "estadoPedido": "ANULADO",
+    "anulacionSolicitada": true,
+    "stockDisponible": 20,
+    "stockReservado": 0,
+    "stockTotal": 20,
+    "cantidadGuiasMongo": 1,
+    "estadoGuiaMongo": "ANULADO",
+    "compensaciones": [
+      {
+        "Paso": "ANULAR_GUIA",
+        "Estado": "OK",
+        "Intento": 1,
+        "FechaInicio": "2026-09-19T04:09:29.110Z",
+        "FechaFin": "2026-09-19T04:09:29.122Z"
+      },
+      {
+        "Paso": "LIBERAR_STOCK",
+        "Estado": "OK",
+        "Intento": 1,
+        "FechaInicio": "2026-09-19T04:09:29.135Z",
+        "FechaFin": "2026-09-19T04:09:29.147Z"
+      }
+    ],
+    "procesos": [
+      {
+        "TipoProceso": "PROCESO",
+        "Paso": "RESERVAR_STOCK",
+        "Estado": "OK",
+        "Intento": 1
+      },
+      {
+        "TipoProceso": "PROCESO",
+        "Paso": "CALCULAR_ENVIO",
+        "Estado": "OK",
+        "Intento": 1
+      },
+      {
+        "TipoProceso": "PROCESO",
+        "Paso": "GENERAR_GUIA",
+        "Estado": "OK",
+        "Intento": 1
+      },
+      {
+        "TipoProceso": "COMPENSACION",
+        "Paso": "ANULAR_GUIA",
+        "Estado": "OK",
+        "Intento": 1
+      },
+      {
+        "TipoProceso": "COMPENSACION",
+        "Paso": "LIBERAR_STOCK",
+        "Estado": "OK",
+        "Intento": 1
+      }
+    ]
+  },
+  "transportistaFinal": {
+    "http": 404,
+    "cantidadDevuelta": 0,
+    "activas": 0,
+    "respuesta": {
+      "error": "No existe guía activa",
+      "guias": [
+        {
+          "numeroGuia": "G-000001",
+          "estado": "ANULADA"
+        }
+      ]
+    }
+  },
+  "validaciones": {
+    "anulacionAlcanzoProceso": true,
+    "pedidoAnulado": true,
+    "stockLiberado": true,
+    "sinGuiaActiva": true,
+    "ordenCompensacionCorrecto": true,
+    "compensacionesOK": true
+  }
+}
