@@ -95,6 +95,7 @@ async def test_invalid_jwks_and_missing_expiration(auth):
     with pytest.raises(AuthError):
         await security.authenticate('Bearer ' + token(exp=None))
     security.loaded = 0
+    security.keys = {}
     async with httpx.AsyncClient(transport=httpx.MockTransport(lambda r: httpx.Response(200, json={'keys': []}))) as bad:
         security.http = bad
         with pytest.raises(AuthError):
