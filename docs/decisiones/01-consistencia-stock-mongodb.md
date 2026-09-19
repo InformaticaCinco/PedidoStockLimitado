@@ -41,4 +41,4 @@ Las transacciones Mongo no cubren el efecto remoto de crear una guía. Se usa co
 - [E2E 09](../../tests/evidencias/e2e09-anulacion-durante-proceso.json): guía anulada y stock restituido.
 - [E2E 15](../../tests/evidencias/e2e15-carga-masiva-500.json) y [E2E 16](../../tests/evidencias/e2e16-carga-masiva-trafico.json): cargas y tráfico individual convergen en el mismo stock limitado.
 
-Son evidencias previas, no nuevas ejecuciones. La cobertura de diez ejecuciones distintas de E2E 16 tiene un **PENDIENTE DE CIERRE** documental descrito en [LEEME](../../LEEME.md): base y repetición 10 coinciden.
+Son evidencias previas, salvo la repetición 1 de E2E 16 ejecutada nuevamente durante el cierre para completar la trazabilidad. E2E 16 dispone ahora de diez evidencias diferenciadas; `e2e16-rep-1.json` y `e2e16-rep-10.json` tienen SHA-256 distintos.

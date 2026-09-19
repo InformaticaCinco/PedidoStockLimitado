@@ -21,7 +21,7 @@ El navegador entra por [web-host](http://localhost:8080). Su Nginx envía `/api/
 
 Java aplica reglas de catálogo, identidad, pedidos y stock mediante arquitectura hexagonal. .NET coordina el despacho y consulta MongoDB; las mutaciones de stock se realizan llamando a Java. Python guarda archivos en GridFS y crea pedidos en MongoDB para que el mismo worker .NET los procese. El simulador mantiene guías en memoria y no usa otra base de datos.
 
-Ver [flujo de servicios](docs/diagramas/flujo-servicios.md) y [modelo visual DrawDB](https://www.drawdb.app/share/UqbNEYSq4dIdhbgsXcH2GAwZ). `ModelamientoDatos.pdf` forma parte de la documentación de entrega indicada por el responsable, junto con `Requerimiento.pdf` y `Diagrama.pdf`. **PENDIENTE DE CIERRE:** los tres PDF no se localizaron dentro de esta copia; adjuntarlos y contrastar su contenido antes de entregar. No se afirma haberlos leído ni validado el contenido del enlace externo.
+Ver [flujo de servicios](docs/diagramas/flujo-servicios.md) y [modelo visual DrawDB](https://www.drawdb.app/share/UqbNEYSq4dIdhbgsXcH2GAwZ). `Requerimiento.pdf`, `ModelamientoDatos.pdf` y `Diagrama.pdf` se trataron como material de referencia del reto. No forman parte de los entregables obligatorios del repositorio.
 
 ## Levantar desde cero
 
@@ -36,7 +36,7 @@ docker compose up -d --no-build --wait --wait-timeout 240
 docker compose ps -a
 ```
 
-La construcción local es el camino reproducible descrito aquí: no se presupone que las imágenes propias estén publicadas. Mongo inicia `rs0`; `mongo-init` espera al primario, crea índices y aplica seed en modo `upsert`. Su salida exitosa como tarea finalizada es normal. Los servicios dependen de esta inicialización y el host espera los healthchecks de backend/remoto. Los healthchecks básicos no sustituyen la verificación funcional de dependencias.
+La construcción local sigue disponible con los comandos anteriores. Además, las cinco imágenes GHCR del cierre están publicadas y verificadas por digest, como se detalla abajo; esta actualización documental no modifica Compose. Mongo inicia `rs0`; `mongo-init` espera al primario, crea índices y aplica seed en modo `upsert`. Su salida exitosa como tarea finalizada es normal. Los servicios dependen de esta inicialización y el host espera los healthchecks de backend/remoto. Los healthchecks básicos no sustituyen la verificación funcional de dependencias.
 
 Abrir `http://localhost:8080`, iniciar sesión y utilizar el menú del rol. Para diagnóstico: `docker compose logs --tail=100 pedidos-java despachos-dotnet cargas-python`.
 
@@ -127,7 +127,7 @@ La UI consulta cada dos segundos mientras PROCESANDO y descarga XLSX autenticado
 
 ## Escenarios y evidencias existentes
 
-Los 21 escenarios fueron ejecutados correctamente según el cierre comunicado por el responsable y los resultados registrados. Se revisaron los JSON/logs de [tests/evidencias/](tests/evidencias/) y [PRUEBAS.xlsx](PRUEBAS.xlsx), que contiene 48 filas de casos/repeticiones con estado OK. No se volvieron a ejecutar ni se modificaron esos archivos durante este cierre documental.
+Los 21 escenarios fueron ejecutados correctamente según los resultados registrados. Se revisaron los JSON/logs de [tests/evidencias/](tests/evidencias/) y [PRUEBAS.xlsx](PRUEBAS.xlsx), que conserva las 48 filas originales de casos/repeticiones con estado OK y agrega siete filas de cierre (55 registros en total). Durante el cierre final se volvió a ejecutar únicamente E2E 16 para completar su trazabilidad independiente; los demás E2E no se volvieron a ejecutar.
 
 Listado exacto de los 21 archivos presentes en `scripts/scenarios`:
 
@@ -158,7 +158,7 @@ Listado exacto de los 21 archivos presentes en `scripts/scenarios`:
 E2E 04, 05 y 16 se ejecutaron diez veces según el registro de entrega y PRUEBAS.xlsx. Alcance verificable de la evidencia conservada:
 
 - E2E 04 y 05: cada JSON registra repetición 01 como `PASS`, tipo `validacion manual previa`, y nueve resultados detallados 02–10, todos PASS. La primera no tiene el mismo detalle técnico que las otras nueve.
-- E2E 16: existen el archivo base y `e2e16-rep-2` a `e2e16-rep-10`, todos PASS. **PENDIENTE DE CIERRE:** el JSON base y el de repetición 10 son idénticos y tienen el mismo `cargaId`; solo se pueden distinguir nueve cargas. Recuperar evidencia independiente de la primera ejecución sin sobrescribir la actual. Esto es una limitación de trazabilidad, no una afirmación de fallo funcional.
+- E2E 16: existen evidencias independientes `e2e16-rep-1` a `e2e16-rep-10`, todas PASS. La repetición 1 se ejecutó nuevamente durante el cierre y produjo un `cargaId` independiente; su JSON tiene SHA-256 distinto del de la repetición 10. Queda así trazabilidad diferenciada para las diez ejecuciones.
 
 Resultados concretos conservados: E2E 04 muestra tres DESPACHADO y 37 ANULADO para 40 competidores por tres unidades; E2E 05 muestra un alta 202 y 39 repeticiones 200, un pedido y una guía. E2E 06 demuestra rollback multilínea. E2E 08 reconcilia una guía tras respuesta parcial; E2E 09 registra compensación y restitución; E2E 11–13 documentan recuperación/reinicio. E2E 14 termina REQUIERE_REVISION con stock 19 disponible/1 reservado, sin guía, tras tres fallos. E2E 15 registra 500 filas: 439 aceptadas, 53 rechazadas y 8 duplicadas; su [reporte](tests/evidencias/e2e15-reporte.xlsx) está conservado. E2E 16 registra tres despachos entre 40 competidores. E2E 17–21 cubren autenticación, roles, pertenencia, suplantación y validación de entradas/logs.
 
@@ -182,22 +182,27 @@ Java `mvn verify` requiere `MONGODB_TEST_URI` o `MONGODB_TEST_BINARY` para integ
 
 ## Integración continua e imágenes
 
-El workflow [.github/workflows/ci.yml](.github/workflows/ci.yml) compila y ejecuta las suites en cada `push` y admite `workflow_dispatch`, con runner Linux. Reutiliza el comando único `./scripts/run-tests.sh`: las pruebas corren dentro de Docker `linux/amd64`, incluidos MongoDB y las integraciones reales disponibles. Ver [instrucciones del runner](scripts/ci/README.md). Los reportes nuevos se guardan en `.build/ci/`; las evidencias E2E previas no se sobrescriben. **PENDIENTE DE CIERRE:** primera ejecución verificable en GitHub Actions; crear el workflow o aprobar localmente no equivale a CI PASS.
+El workflow [.github/workflows/ci.yml](.github/workflows/ci.yml), **“Compilación y pruebas Docker”**, ejecución **#3**, terminó en **SUCCESS** para el commit **`c90ee33`**. Ejecuta compilación y pruebas en cada `push` y admite `workflow_dispatch` sobre Linux. Reutiliza el comando local único:
 
-Todas las entradas Compose fijan `platform: linux/amd64`. La siguiente tabla describe referencias declaradas, no prueba publicación ni sustituye un digest de registro.
+```sh
+./scripts/run-tests.sh
+```
 
-| Imagen declarada | Versión | Plataforma declarada | Publicación/digest verificable |
-|---|---|---|---|
-| `pedido-stock/mongo-tools` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `pedido-stock/pedidos-java` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `pedido-stock/despachos-dotnet` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `pedido-stock/cargas-python` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `pedido-stock/transportista-simulator` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `pedido-stock/web-host` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `pedido-stock/admin-mfe` | 1.0.0 | linux/amd64 | PENDIENTE DE CIERRE |
-| `mongo` (base externa) | 7.0.16 | linux/amd64 | PENDIENTE DE CIERRE: digest usado en entrega |
+Las pruebas corren dentro de Docker `linux/amd64`, incluidas las integraciones reales disponibles. Resultado consolidado: **318 pruebas aprobadas** — Java 43, .NET 46, cargas-python 88, transportista 49, Mongo/seed 25, web-host 40 y admin-mfe 27. Ver [instrucciones del runner](scripts/ci/README.md). Los reportes locales se guardan en `.build/ci/`; las evidencias E2E previas se conservan.
 
-No se encontraron aquí manifiestos de publicación que permitan cerrar registro/digests. No se inventan SHA256 ni se confunde un hash de build Angular o ID local de imagen con un digest publicado.
+El workflow [.github/workflows/publish-images.yml](.github/workflows/publish-images.yml), **“Publicar imágenes Docker” #1**, terminó en **SUCCESS**, con **5/5 jobs completados**. Los resultados de GitHub y la verificación operativa siguientes fueron proporcionados por el responsable como datos reales ya verificados; no son nuevas ejecuciones de este cierre documental.
+
+| Imagen GHCR | Versión | Plataforma | Digest exacto | Descarga por digest | Arranque por digest | Healthcheck |
+|---|---|---|---|---|---|---|
+| `ghcr.io/informaticacinco/pedidos-java:1.0.0` | 1.0.0 | linux/amd64 | `sha256:1b06b858aef3638ca369b519f2aaddf87357c37453f8a6f74ce7784923466c4e` | OK | OK | healthy OK |
+| `ghcr.io/informaticacinco/despachos-dotnet:1.0.0` | 1.0.0 | linux/amd64 | `sha256:88e8cfe6b6ffd6723f80211e40efd045fd506be9404235c14cbb390f9a8ac216` | OK | OK | healthy OK |
+| `ghcr.io/informaticacinco/cargas-python:1.0.0` | 1.0.0 | linux/amd64 | `sha256:8e0eae0c9fd9c736b09ea70302c8a2a4e8bed400e6e2586a0226aefd9673667b` | OK | OK | healthy OK |
+| `ghcr.io/informaticacinco/web-host:1.0.0` | 1.0.0 | linux/amd64 | `sha256:3a21700d69821a896bea495c81541e290d3a278f6199854d4e76d38e25a609f6` | OK | OK | healthy OK |
+| `ghcr.io/informaticacinco/admin-mfe:1.0.0` | 1.0.0 | linux/amd64 | `sha256:eccd27db108fdef49bff498a44540c77af920ce5da2d95826a0e2b90d6ee51a9` | OK | OK | healthy OK |
+
+Las cinco imágenes se descargaron explícitamente mediante `ghcr.io/informaticacinco/<imagen>@sha256:<digest>`. El arranque con `docker compose up -d --no-build --wait` terminó con los cinco servicios healthy, y `docker inspect` confirmó que cada contenedor utilizó exactamente su referencia GHCR por digest. La verificación corresponde a esas referencias inmutables, no solo al tag `1.0.0`.
+
+MongoDB, mongo-tools y transportista-simulator **no se publicaron como parte de este requisito**; no se les atribuye un digest GHCR ni se los incluye entre los cinco jobs aprobados. Esta publicación tampoco implica firma de imágenes, despliegue productivo o alta disponibilidad.
 
 ## Límites y cierre
 
@@ -205,8 +210,8 @@ Una instancia por servicio y MongoDB de un nodo no ofrecen alta disponibilidad. 
 
 Algunos README/RESUMEN de módulos conservan pendientes históricos de Compose o integración que ya existen en el código actual. Este documento distingue el estado final verificable; no se reescribió el historial de esos módulos. La [decisión 03](docs/decisiones/03-arquitectura-productiva.md) separa implementación del reto y evolución propuesta para producción.
 
-**PENDIENTE DE CIERRE:** al validar el nuevo CI, Git ya está inicializado pero no contiene archivos rastreados; `git diff --stat` devuelve salida vacía. No se hizo commit ni push. Completar además PDF, trazabilidad de E2E 16, CI y publicación/digests indicados arriba.
+La trazabilidad de E2E 16, CI y la publicación/verificación por digest de las cinco imágenes quedan cerradas con los resultados indicados. Los tres PDF se consideran material de referencia del reto y no entregables obligatorios del repositorio.
 
-**PENDIENTE: completar tiempo real antes de entregar.**
+**Tiempo invertido aproximado:** 20 horas de trabajo.
 
 Uso de herramientas y supervisión: [IA.md](IA.md).

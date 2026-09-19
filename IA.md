@@ -12,7 +12,7 @@ El uso incluyó Dockerfiles y Compose, diagnóstico de integración entre Java/.
 
 Las propuestas de IA **no se aceptaron automáticamente**. El proceso de supervisión contrastó las propuestas con el requerimiento, el código real, las colecciones y estados de MongoDB, las respuestas HTTP, la configuración/ejecución Docker y las ejecuciones E2E. Una respuesta de IA o un test redactado no se consideró evidencia de ejecución: se revisaron resultados, logs y efectos persistidos.
 
-Las correcciones siguientes corresponden al historial de trabajo informado por el responsable. Los scripts finales y las evidencias permiten comprobar el comportamiento corregido; al no existir historial Git en esta copia, no se afirma disponer aquí de todas las versiones descartadas. Los PDF de referencia no están presentes en el repositorio inspeccionado: **PENDIENTE DE CIERRE**, incorporarlos y comprobar la trazabilidad completa contra sus versiones entregadas.
+Las correcciones siguientes corresponden al historial de trabajo informado por el responsable. Los scripts finales y las evidencias permiten comprobar el comportamiento corregido; no se afirma que el historial conserve todas las propuestas o versiones descartadas durante la coordinación. `Requerimiento.pdf`, `ModelamientoDatos.pdf` y `Diagrama.pdf` se trataron como material de referencia del reto y no como entregables obligatorios del repositorio.
 
 ## Ejemplos de corrección y validación
 
@@ -29,8 +29,8 @@ Estos casos muestran un proceso iterativo de revisión y corrección: los contra
 
 ## Límites de esta documentación
 
-El cierre documental leyó código, Dockerfiles, Compose, scripts, PRUEBAS.xlsx y evidencias. No volvió a ejecutar los E2E, no modificó código ni PRUEBAS.xlsx y no eliminó evidencias. Las ejecuciones previas se distinguen de las comprobaciones documentales actuales.
+El cierre documental leyó código, Dockerfiles, Compose, scripts, PRUEBAS.xlsx y evidencias. No modificó código ni eliminó evidencias. Durante el cierre final se volvió a ejecutar únicamente E2E 16 para completar su trazabilidad independiente. Además, se añadieron a PRUEBAS.xlsx siete registros reales de suite consolidada, CI y publicación/verificación de imágenes, conservando las 48 filas originales.
 
-Los 21 escenarios figuran aprobados; el responsable y PRUEBAS.xlsx registran diez ejecuciones de E2E 04/05/16. En 04/05 la primera queda resumida como validación manual. **PENDIENTE DE CIERRE:** en 16 el resultado base coincide con repetición 10, por lo que solo se distinguen nueve cargas en los JSON disponibles. Se conserva esa discrepancia y se solicita cerrar su evidencia, sin fabricar otra ejecución.
+Los 21 escenarios figuran aprobados; PRUEBAS.xlsx registra diez ejecuciones de E2E 04/05/16. En 04/05 la primera queda resumida como validación manual. Para E2E 16 se ejecutó nuevamente la repetición 1 durante el cierre y se conservaron `e2e16-rep-1.json` y `e2e16-rep-1.log`; su SHA-256 es distinto del de `e2e16-rep-10.json`, por lo que las diez ejecuciones quedan diferenciadas documentalmente.
 
-No hay workflow CI en esta copia, ni evidencia de publicación/digests finales de imágenes. No se atribuyen aprobaciones de CI, hashes de publicación o tiempos de trabajo a partir de estimaciones de IA. Los pendientes están centralizados en [LEEME.md](LEEME.md).
+El cierre incorpora los datos reales verificados por el responsable: “Compilación y pruebas Docker” #3 SUCCESS, commit `c90ee33`, 318 pruebas aprobadas; y “Publicar imágenes Docker” #1 SUCCESS, cinco jobs completados. Las cinco imágenes GHCR 1.0.0 linux/amd64 fueron descargadas y arrancadas por sus digests exactos, con healthchecks correctos y confirmación mediante docker inspect. Los digests se transcriben en [LEEME.md](LEEME.md); no se infieren ni se generan como resultado de la IA. Estos datos no representan una nueva ejecución durante la edición documental. El tiempo de trabajo informado por el responsable fue de aproximadamente 20 horas.

@@ -27,7 +27,7 @@ Se implementaron transacciones y filtros para stock, índices únicos, idempoten
 | Mensajería | Estado durable y deduplicación | Si se elimina la restricción actual, evaluar cola durable, outbox/inbox y política de redelivery; mantener idempotencia, no asumir exactly-once global |
 | Transportista | Consulta por pedido y clave estable | Proveedor real con contrato durable de idempotencia, reconciliación, cancelación, SLA, credenciales y pruebas de compatibilidad |
 | Datos compartidos | Contratos claros y versiones compatibles | Evaluar propiedad de datos por servicio/migraciones, reducir acoplamiento directo sin romper atomicidad requerida |
-| Entrega | Dockerfiles y pruebas reproducibles | CI verificable, publicación firmada/versionada, digests de registro, análisis de dependencias y promoción por entorno |
+| Entrega | Dockerfiles, pruebas reproducibles, CI SUCCESS y cinco imágenes GHCR 1.0.0 verificadas por digest | Firma de imágenes, análisis de dependencias y promoción por entorno |
 
 Compose sigue siendo útil para desarrollo e integración local. No se presenta como un orquestador de alta disponibilidad. El diseño productivo requeriría medir carga real y disponibilidad objetivo; no se fijan capacidades o tiempos inventados.
 
@@ -39,7 +39,7 @@ Un monolito reduciría la coordinación operativa, pero no reflejaría la separa
 
 El entorno actual es reproducible, pero tiene puntos únicos de fallo, credenciales de laboratorio, exposición local de puertos y dependencias de esquema compartidas. La capacidad de recuperación probada no acredita disponibilidad continua. Una guía puede perderse al reiniciar el simulador. La UI ADMIN presenta métricas derivadas y referencias locales, no historial global ni BI.
 
-**PENDIENTE DE CIERRE:** primera ejecución de CI en GitHub (workflow creado en [.github/workflows/ci.yml](../../.github/workflows/ci.yml), que reutiliza [scripts/run-tests.sh](../../scripts/run-tests.sh)), registro/digests publicados y PDF de referencia ausentes de esta copia. No se consideran componentes productivos ya entregados.
+Cierre verificado comunicado por el responsable: CI “Compilación y pruebas Docker” #3 SUCCESS sobre `c90ee33` (318 pruebas), y “Publicar imágenes Docker” #1 SUCCESS (5/5 jobs). Las cinco imágenes GHCR 1.0.0 linux/amd64 se descargaron y arrancaron por digest, con estado healthy y referencia exacta comprobada mediante docker inspect; ver [LEEME](../../LEEME.md). Esto no acredita alta disponibilidad ni el resto de la evolución productiva propuesta. Los PDF de referencia se consideran material de entrada del reto y no entregables obligatorios del repositorio.
 
 ## Evidencia
 
